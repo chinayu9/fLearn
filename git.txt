@@ -28,4 +28,5 @@
 	git branch   ----列出所有分支，当前分支前面会标一个*号
 	git merge dev    -----合并dev分支到当前分支
 	git branch -d dev   ---删除dev分支
-	Creating a new branch is quick AND simple.
+	当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+	git log --graph   ---此命令可以看到分支合并图
