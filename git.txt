@@ -1,6 +1,6 @@
 
 	Git是一种分布式版本控制系统
-	git init ---把一个目录变成Git可以管理的仓库(repository)初始化
+	git init ---把一个目录变成Git可以管理的仓库(repository)---初始化
 	git add test.txt --把文件添加到仓库，可以反复多次使用，添加多个文件
 	git commit -m "some msg"  ---把文件提交到仓库，一次性把add命令添加的文件提交
 	git status ----查看仓库当前状态
