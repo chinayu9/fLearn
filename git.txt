@@ -18,3 +18,20 @@
 	场景2：当你不但乱改了工作区的某个文件，并且还添加到了暂存区，想丢弃修改，分两步，第一步用命令git reset HEAD readme.txt,回到场景1，第二步按场景1操作
 	场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，git reset版本回退
 	git rm text.txt => git commit  ---从版本库中删除该文件
+	git remote add origin https://github.com/username/git-repo.git   ----关联一个远程库
+	git push -u origin master  ---第一次推送master分支的所有内容
+	git push origin master  ---推送最新修改的内容
+	git clone https://github.com/username/git-repo.git  ----克隆远程仓库到本地
+	git checkout -b dev   ----创建dev分支，然后切换到dev分支，相当于执行以下两条命令
+	git branch dev ---创建dev分支
+	git checkout dev   ---切换到dev分支
+	git branch   ----列出所有分支，当前分支前面会标一个*号
+	git merge dev    -----合并dev分支到当前分支
+	git branch -d dev   ---删除dev分支
+	当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+	git log --graph   ---此命令可以看到分支合并图
+	git merge --no-ff -m "some message" dev   ---- 【--no-ff】参数表示禁用Fast forward模式合并分支
+	git stash    ---保存当前工作现场，等以后恢复现场后继续工作
+	git stash list  ----查看保存的工作现场
+	git stash apply   ---恢复工作现场，但stash内容并不删除，需要用git stash drop来删除
+	git stash pop    -------恢复的同时把stash内容也删了
