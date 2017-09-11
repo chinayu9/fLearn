@@ -35,10 +35,3 @@
 	git stash list  ----查看保存的工作现场
 	git stash apply   ---恢复工作现场，但stash内容并不删除，需要用git stash drop来删除
 	git stash pop    -------恢复的同时把stash内容也删了
-
-    test
-<<<<<<< HEAD
-    myself
-=======
-    test
->>>>>>> 5480c882dda1de856bc56067d7893feb92436675
