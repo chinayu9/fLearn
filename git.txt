@@ -32,3 +32,4 @@
 	git log --graph   ---此命令可以看到分支合并图
 	BUG修复完成
 	git merge --no-ff -m "some message" dev   ---- 【--no-ff】参数表示禁用Fast forward模式合并分支
+	开发完成
