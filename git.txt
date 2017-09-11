@@ -30,6 +30,8 @@
 	git branch -d dev   ---删除dev分支
 	当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
 	git log --graph   ---此命令可以看到分支合并图
-	BUG修复完成
 	git merge --no-ff -m "some message" dev   ---- 【--no-ff】参数表示禁用Fast forward模式合并分支
-	开发完成
+	git stash    ---保存当前工作现场，等以后恢复现场后继续工作
+	git stash list  ----查看保存的工作现场
+	git stash apply   ---恢复工作现场，但stash内容并不删除，需要用git stash drop来删除
+	git stash pop    -------恢复的同时把stash内容也删了
