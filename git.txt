@@ -5,3 +5,4 @@
 	git commit -m "some msg"  ---把文件提交到仓库，一次性把add命令添加的文件提交
 	git status ----查看仓库当前状态
 	git diff text.txt ---查看difference
+	git  log ---显示从最近到最远的提交日志 如果输出信息过多，试试加上【--pretty=oneline】参数
