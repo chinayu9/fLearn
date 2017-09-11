@@ -38,3 +38,4 @@
 	git stash pop    -------恢复的同时把stash内容也删了
 
     test
+    test
