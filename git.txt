@@ -5,6 +5,10 @@
 	git commit -m "some msg"  ---把文件提交到仓库，一次性把add命令添加的文件提交
 	git status ----查看仓库当前状态
 	git diff text.txt ---查看difference
-	git  log ---显示从最近到最远的提交日志 如果输出信息过多，试试加上【--pretty=oneline】参数
+	git  log ---显示从最近到最远的提交日志 如果输出信息过多，试试加上【--pretty=oneline】参数，结合git reset 命令方便回退到过去某个版本
 	git reset --hard commit_id   ----回到某个提交的版本 HEAD指向的版本就是当前版本 HEAD^表示上一个版本
-	git reflog   ---查看历史命令，可以找到每个版本的commit_id,结合git reset命令方便回到某一个版本
+	git reflog   ---查看历史命令，可以找到每个版本的commit_id,结合git reset命令方便回到未来某一个版本
+	工作区 即通过git init初始化的工作目录。工作区下有一个【.git】隐藏目录,它是Git的版本库，里面存储了很多
+	东西，最重要的就是称为stage(或者叫index)的暂存区，还有默认分支master以及指向master的指针HEAD
+	git add 命令实际上就是把文件修改添加到暂存区
+	git commit 提交更改，实际上就是把暂存区的所有内容提交到当前分支
