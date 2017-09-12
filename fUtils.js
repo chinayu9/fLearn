@@ -13,6 +13,7 @@ isFunction    判断是否为函数对象
 isElement      判断是否为DOM元素
 deepCopy     深拷贝
 extend       继承，将后面对象的属性拷贝到第一个对象中去
+flatten     数组扁平化操作
  */
 (function(global,factory){
 	factory(global);
@@ -314,6 +315,54 @@ extend       继承，将后面对象的属性拷贝到第一个对象中去
 			}
 		}
 		return target;
+	};
+
+	/**
+	 * [flatten description]
+	 * @param  {[type]} array   [待处理数组]
+	 * @param  {[type]} shallow [是否只扁平化一层]
+	 * @return {[type]}         [description]
+	 */
+	fUtils.prototype.flatten = function(array,shallow){
+		return flatten(array,shallow,false);
+	};
+	/**
+	 * 数组变平化处理
+	 * @param  {[type]} input   [待处理数组]
+	 * @param  {[type]} shallow [是否只扁平化一层]
+	 * @param  {[type]} strict  [是否使用严格模式，即跳过非数组]
+	 * @param  {[type]} output  [返回扁平化后的数组]
+	 * @return {[type]}         [description]
+	 *
+	 * shallow true + strict false ：正常扁平一层
+	 * shallow false + strict false ：正常扁平所有层
+	 * shallow true + strict true ：去掉非数组元素
+	 * shallow false + strict true ： 返回一个[]
+	 */
+	function flatten(input,shallow,strict,output){
+		//递归使用的时候会用到output
+		output = output || [];
+		var index = output.length;
+		for(var i = 0,len = input.length;i<len;i++){
+			var value = input[i];
+			if (Array.isArray(value)) {
+				//如果只扁平一层
+				if (shallow) {
+					var j =0,len = value.length;
+					while(j < len){
+						output[index++] = value[j++];
+					}
+				}else{
+					//如果全部扁平
+					flatten(value,shallow,strict,output);
+					index = output.length;
+				}
+			}else if (!strict) {
+				//不是数组，根据strict的值判断是跳过不处理还是放入output
+				output[index++] = value;
+			}
+		}
+		return output;
 	}
 	window.fUtils = new fUtils;
 });
