@@ -14,11 +14,12 @@ isElement      判断是否为DOM元素
 deepCopy     深拷贝
 extend       继承，将后面对象的属性拷贝到第一个对象中去
 flatten     数组扁平化操作
+findIndex    正向查找指定元素
+findLastIndex  反向查找指定元素
  */
 (function(global,factory){
 	factory(global);
 })(window,function(window){
-
 	var class2type = {};
 	//相当于Object.prototype.toString
 	var toString = class2type.toString;
@@ -364,5 +365,29 @@ flatten     数组扁平化操作
 		}
 		return output;
 	}
+
+	/**
+	 * 查找指定元素
+	 * @param  {[type]} dir [方向]
+	 * @return {[type]}     [description]
+	 */
+	function createIndexFinder(dir){
+		//查找符合predicate的元素在数组中的位置
+		return function(array,predicate,context){
+			var length = array.length;
+			var index = dir > 0 ? 0 :length - 1;
+			for(;index >= 0 && index < length ; index += dir){
+				if (predicate.call(context,array[index],index,array)) {
+					return index;
+				}
+			}
+			return -1;
+		};
+	}
+	//正向查找指定元素
+	fUtils.prototype.findIndex = createIndexFinder(1);
+	//反向查找指定元素
+	fUtils.prototype.findLastIndex = createIndexFinder(-1);
+	
 	window.fUtils = new fUtils;
 });
