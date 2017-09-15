@@ -31,7 +31,7 @@ findLastIndex  反向查找指定元素
 	};
 
 	fUtils.prototype.init = function(){
-		"Boolean Number String Function Array Date RegExp Object Error Null Undfined".split(" ").map(function(item,index){
+		"Boolean Number String Function Array Date RegExp Object Error Null Undfined NodeList".split(" ").map(function(item,index){
 			class2type["[object " + item + "]"] = item.toLowerCase();
 		});
 	};
@@ -226,14 +226,14 @@ findLastIndex  反向查找指定元素
 	 */
 	
 	 fUtils.prototype.isArrayLike = function(obj){
-		var length = !!obj && "lenght" in obj && obj.length;
+		var length = !!obj && "length" in obj && obj.length;
 		var typeRes = this.type(obj);
 		//排除掉函数和window对象
 		if (typeRes === "function" || this.isWindow(obj)) {
 			return false;
 		}
-		return typeRes === "array" || length === 0 ||
-			typeof length === "number" && length > 0 && (length-1) in obj; 
+		return typeRes === "array" || typeRes === 'nodelist' || length === 0 ||
+			(typeof length === "number" && length > 0 && (length-1) in obj); 
 	};
 
 	/**
