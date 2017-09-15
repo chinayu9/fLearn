@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--原文地址http://axuebin.com/blog/2017/08/19/javascript-lazyload/-->
+	<meta charset="utf-8">
+	<title>图片懒加载简单实现</title>
+	<style type="text/css">
+		body{
+			margin:0;
+			padding: 0;
+		}
+		.container{
+			margin-top: 50px;
+			width: 1170px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.img-area{
+			text-align: center;
+			height: 600px;
+		}
+		img.lazy-load-img{
+			max-height: 100%;
+			max-width: 100%;
+		}
+
+	</style>
+	<script type="text/javascript" src="./fUtils.js"></script>
+	<script type="text/javascript" src="./jquery-3.1.0.js"></script>
+</head>
+<body>
+<div>原文地址:<a href="http://axuebin.com/blog/2017/08/19/javascript-lazyload/">http://axuebin.com/blog/2017/08/19/javascript-lazyload/</a></div>
+<div class="container">
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img1.png" class="lazy-load-img">
+	</div>
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img2.png" class="lazy-load-img">
+	</div>
+
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img3.png" class="lazy-load-img">
+	</div>
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img4.png" class="lazy-load-img">
+	</div>
+
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img5.png" class="lazy-load-img">
+	</div>
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img6.png" class="lazy-load-img">
+	</div>
+
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img7.png" class="lazy-load-img">
+	</div>
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img8.png" class="lazy-load-img">
+	</div>
+
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img9.png" class="lazy-load-img">
+	</div>
+	<div class="img-area">
+		<img alt="loading" data-src="http://axuebin.com/lazyload/img/img10.png" class="lazy-load-img">
+	</div>
+</div>
+
+<script type="text/javascript">
+(function(){
+	/**
+	 * 判断元素是否在可见区域
+	 * @param  {[type]}  el [description]
+	 * @return {Boolean}    [description]
+	 */
+	function isInSight(el){
+		var bound = el.getBoundingClientRect();
+		
+		var clientHeight = window.innerHeight;//可视区域的高度
+		//bound.top图片到可视区域顶部距离
+		return bound.top <= clientHeight + 100;
+	}
+	/**
+	 * 检查可见区域的img并加载
+	 * @return {[type]} [description]
+	 */
+	function checkImgs(){
+		var imgs = document.querySelectorAll(".lazy-load-img");
+		fUtils.each(imgs,function(index,elem){
+			if (isInSight(elem)) {
+				loadImg(elem);
+			}
+		});
+	}
+	/**
+	 * 加载图片
+	 * @param  {[type]} elem [description]
+	 * @return {[type]}      [description]
+	 */
+	function loadImg(elem){
+		if (!elem.src) {
+			var source = elem.dataset.src;
+			elem.src = source;
+		}
+	}
+	checkImgs();
+
+	$(document).on("scroll",fUtils.throttle(function(){
+		checkImgs();
+	},500));
+})();
+</script>
+</body>
+</html>
