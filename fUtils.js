@@ -388,6 +388,32 @@ findLastIndex  反向查找指定元素
 	fUtils.prototype.findIndex = createIndexFinder(1);
 	//反向查找指定元素
 	fUtils.prototype.findLastIndex = createIndexFinder(-1);
-	
+
+	/**
+	 * 遍历数组(类数组)或对象
+	 * @param  {[type]}   obj      [description]
+	 * @param  {Function} callback [description]
+	 * @return {[type]}            [description]
+	 */
+	function each(obj,callback){
+		var length,i = 0;
+		if (this.isArrayLike(obj)) {
+			length = obj.length;
+			for(;i < length; i++){
+				if(callback.call(obj[i],i,obj[i]) === false){
+					break;
+				}
+			}
+		}else{
+			for(i in obj){
+				if(callback.call(obj[i],i,obj[i]) === false){
+					break;
+				}
+			}
+		}
+		return obj;
+	}
+	//遍历数组(类数组)或对象
+	fUtils.prototype.each = each;
 	window.fUtils = new fUtils;
 });
