@@ -16,6 +16,7 @@ extend       继承，将后面对象的属性拷贝到第一个对象中去
 flatten     数组扁平化操作
 findIndex    正向查找指定元素
 findLastIndex  反向查找指定元素
+each          遍历数组(类数组)或对象
  */
 (function(global,factory){
 	factory(global);
@@ -415,5 +416,105 @@ findLastIndex  反向查找指定元素
 	}
 	//遍历数组(类数组)或对象
 	fUtils.prototype.each = each;
+
+	/** 函数柯里化 第一版*/
+	function curry1(fn){
+		var args = [].slice.call(arguments,1);
+		return function(){
+			var newArgs = args.concat([].slice.call(arguments));
+			return fn.apply(this,newArgs);
+		};
+	}
+
+	/** 函数柯里化 第二版*/
+	function curry2(fn,length){
+		length = length || fn.length; //fn.length  函数形参个数
+		var slice = Array.prototype.slice;
+		return function(){
+			//如果柯里化的函数的实参个数小于原函数的形参个数，表明参数个数不满足原函数所需参数
+			//递归调用curry2
+			//否则直接执行原函数
+			if (arguments.length < length) { 
+				var combined = [fn].concat(slice.call(arguments));
+				return curry2(curry1.apply(this,combined),length-arguments.length);
+			}else{
+				return fn.apply(this,arguments);
+			}
+		};
+	}
+
+	/**
+	 *  函数柯里化 curry2的另一种实现方式
+	 * @param  {Function} fn   [description]
+	 * @param  {[type]}   args [description]
+	 * @return {[type]}        [description]
+	 */
+	function curry2_(fn,args){
+		var length = fn.length;
+		args = args || [];
+		return function(){
+			var _args = args.slice(0),
+				arg,i;
+			for(i = 0;i < arguments.length;i++){
+				arg = arguments[i];
+				_args.push(arg);//参数拼接
+			}
+			if (_args.length < length) {
+				return curry2_.call(this,fn,_args);
+			}else{
+				return fn.apply(this,_args);
+			}
+		};
+	}
+
+	/**
+	 * 函数柯里化 第三版 增加占位符 
+	 * 目前还不理解
+	 * @param  {Function} fn    [description]
+	 * @param  {[type]}   args  [description]
+	 * @param  {[type]}   holes [description]
+	 * @return {[type]}         [description]
+	 */
+	function curry3(fn,args,holes){
+		var length = fn.length;
+		args = args || [];
+		holes = holes || [];
+		return function(){
+			var _args = args.slice(0),
+				_holes = holes.slice(0),
+				argsLen = args.length,
+				holesLen = holes.length,
+				arg, i, index = 0;
+			for(i = 0;i < arguments.length;i++){
+				arg = arguments[i];
+				if (arg === _ && holesLen) {
+					index++;
+					if (index > holesLen) {
+						_args.push(arg);
+						_holes.push(argsLen - 1 + index - holesLen);
+					}
+				}else if (arg === _) {
+					_args.push(arg);
+					_holes.push(argsLen + i);
+				}else if (holesLen) {
+					if (index >= holesLen) {
+						_args.push(arg);
+					}else{
+						_args.splice(_holes[index],1,arg);
+						_holes.splice(index,1);
+					}
+				}else{
+					_args.push(arg);
+				}
+			}
+			if (_holes.length || _args.length < length) {
+				return curry3.call(this,fn,_args,_holes);
+			}else{
+				return fn.apply(this,_args);
+			}
+		};
+	}
+	//函数柯里化本质上是降低通用性，提高适用性。
+	fUtils.prototype.curry = curry2;
 	window.fUtils = new fUtils;
 });
