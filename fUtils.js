@@ -20,8 +20,12 @@ each          遍历数组(类数组)或对象
 curry      函数柯里化
  */
 (function(global,factory){
-	factory(global);
-})(window,function(window){
+	"use strict";
+	factory( global );
+	if ( typeof module === "object" && typeof module.exports === "object" ) {
+		module.exports = global.fUtils;
+	} 
+})(typeof window !== "undefined" ? window : this,function(window){
 	var class2type = {};
 	//相当于Object.prototype.toString
 	var toString = class2type.toString;
