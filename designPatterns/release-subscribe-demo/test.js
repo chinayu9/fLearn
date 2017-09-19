@@ -1,14 +1,18 @@
 var installEvent = require('./event');
 var salesOffices = {};
 installEvent(salesOffices);
-salesOffices.listen('squareMeter88',function(price){  //小明订阅88平米房子的消息
+var fn1,fn2,fn3;
+salesOffices.listen('squareMeter88',fn1 = function(price){  //小明订阅88平米房子的消息
 	console.log('价格= ' + price);
 });
+salesOffices.listen('squareMeter88',fn2 = function(price){  //小王订阅88平米房子的消息
+	console.log('小王订阅价格= ' + price);
 
-salesOffices.listen('squareMeter110',function(price){  //小红订阅110平米房子的消息
+});
+salesOffices.listen('squareMeter110',fn3 = function(price){  //小红订阅110平米房子的消息
 	console.log('价格= ' + price);
 });
-
+salesOffices.remove("squareMeter88",fn2);
 salesOffices.trigger('squareMeter88',200000);//发布88平米房子的价格
 salesOffices.trigger('squareMeter110',300000);//发布110平米房子的价格
 
