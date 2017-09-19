@@ -17,6 +17,7 @@ flatten     数组扁平化操作
 findIndex    正向查找指定元素
 findLastIndex  反向查找指定元素
 each          遍历数组(类数组)或对象
+curry      函数柯里化
  */
 (function(global,factory){
 	factory(global);
