@@ -1,4 +1,6 @@
-var installEvent = require('./event');
+//var installEvent = require('./event');
+//var fEvent = require('./fEvent');
+/*
 var salesOffices = {};
 installEvent(salesOffices);
 var fn1,fn2,fn3;
@@ -29,3 +31,9 @@ salesFruit.listen('banana',function(price){  //小红订阅香蕉的消息
 });
 salesFruit.trigger('apple',2);//发布88平米房子的价格
 salesFruit.trigger('banana',3);//发布110平米房子的价格
+
+*/
+fEvent.trigger('click',1);
+fEvent.listen('click',function(a){
+	console.log(a);
+});
