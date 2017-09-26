@@ -1,0 +1,15 @@
+{
+  "name": "fkoa",
+  "version": "1.0.0",
+  "description": "koa study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "author": "chinayu9",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0"
+  }
+}
