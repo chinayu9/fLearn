@@ -2,7 +2,7 @@
   "name": "fkoa",
   "version": "1.0.0",
   "description": "koa study",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -11,6 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.3.0",
-    "koa-router": "^7.2.1"
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
+    "koa-views": "^6.1.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
