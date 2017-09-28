@@ -3,7 +3,6 @@ const app = new Koa();
 const bodyparser = require('koa-bodyparser');
 const views = require('koa-views');
 
-
 app.use(bodyparser());
 app.use(require('koa-static')(__dirname + '/public'));
 app.use(views(__dirname + '/views',{
