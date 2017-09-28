@@ -1,8 +1,8 @@
 const router = require('koa-router')();
-const fs = require('fs');
-const getUsers = require('../mysql/userController');
+const userDao = require('../dao/userDao');
 router.get('/',async (ctx,next)=>{
-	let users = await getUsers();
+	let user = await userDao.loginCheck('18328508594','1234567');
+	let users = await userDao.getUsers();
 	await ctx.render('index',{data:JSON.stringify(users)});
 });
 
