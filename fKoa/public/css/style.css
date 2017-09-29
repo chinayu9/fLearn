@@ -1,6 +1,5 @@
-body{
-	background-color: #eee;
-}
-p{
-	color: #f00;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
