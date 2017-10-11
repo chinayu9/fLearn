@@ -5,10 +5,127 @@ body{
 	margin: 0px;
 	padding: 0px;
 }
-#logout{
-	border:1px solid #ccc;
-	width: 200px;
-	height: 30px;
-	text-align: center;
-	line-height: 30px;
+header{
+	height: 40px;
+	background-color: #f8f8f8;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.banner-container{
+	width: 960px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+}
+#top-nav{
+	flex: 1 0 0;
+}
+#top-nav ul{
+	list-style: none;
+}
+ul.menu-1 > li.menu-item-1{
+	display: inline-block;
+	position: relative;
+}
+#top-nav ul a{
+	text-decoration: none;
+	color: #0f88eb;
+	font-size: 18px;
+	position: relative;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	display: inline-block;
+	padding: 0 10px;
+}
+li.menu-item-1:hover{
+	background-color: #eef;
+	color: #4aa5f0;
+}
+li.menu-item-1:hover ul.menu-2{
+	display: block;
+}
+
+ul.menu-2{
+	position: absolute;
+	background-color: #eee;
+	top: 40px;
+	left:0px;
+	display: none;
+}
+li.menu-item-2{
+	min-width: 100px;
+	margin:0 10px;
+	padding-left:0px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+	transition:.3s ease-out;
+}
+li.menu-item-2:last-child{
+	border: none;
+}
+li.menu-item-2:hover{
+	padding-left:20px;
+}
+#top-nav li.menu-item-2 a{
+	color: #aaa;
+}
+#personal-area{
+	margin-right: 10px;
+	cursor: pointer;
+	padding: 0 5px;
+	height: 40px;
+	position: relative;
+}
+.nickname{
+	font-size: 16px;
+	color: red;
+	line-height: 40px;
+}
+.personal-drop-down-box{
+	border:1px solid #e7eaf1;
+	padding: 7px 0;
+	border-radius: 3px;
+	position:absolute;
+	top: 49px;
+	left: -15px;
+	box-shadow: 10px 10px 30px #ddd;
+	opacity: 0;
+	visibility: hidden;
+	transition: .5s;
+}
+.arrow-up{
+	position: absolute;
+	top: -9px;
+	left: 43px;
+}
+.arrow-up:before{
+	content: "";
+	border-bottom: 9px solid #e7eaf1;
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent;
+	position: absolute;
+}
+.arrow-up:after{
+	content: "";
+	border-bottom: 9px solid #fff;
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent;
+	position: absolute;
+	top: 1px;
+}
+.settings{
+	width: 100px;
+}
+.settings a{
+	display: block;
+	padding: 0 10px;
+	line-height: 36px;
+	text-decoration: none;
+	color:#262626;
+}
+.settings a:hover{
+	background-color: #ddd;
 }
