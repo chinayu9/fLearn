@@ -5,13 +5,13 @@ $(function(){
 		var account = $(".account input").val();
 		var password = $(".password input").val();
 		if (account.trim().length == 0) {
-			console.log('账号不能为空');
+			//console.log('账号不能为空');
 			$(".account .error").addClass("is-visible");
 			canLogin = false;
 		}
 		if (password.trim().length == 0) {
-			console.log('账号不能为空');
-			$(".password .error").addClass("is-visible");
+			//console.log('账号不能为空');
+			$(".password .error").text("密码不能为空").addClass("is-visible");
 			canLogin = false;
 		}
 		if (!canLogin) {
@@ -24,8 +24,12 @@ $(function(){
 			},
 			method:"POST",
 			success:function(data){
-				if (data == "success") {
-					window.location.href = '/home';
+				var json = JSON.parse(data);
+				console.log(json);
+				if (json.status == 1) {
+					window.location.href = json.redirect;
+				}else{
+					$(".password .error").text("账号或者密码错误").addClass("is-visible");
 				}
 			}
 		});

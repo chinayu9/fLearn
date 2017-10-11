@@ -15,12 +15,19 @@ router.post('/login',async (ctx,next)=>{
 	let user = await userDao.loginCheck(account,password);
 	if (user) {
 		ctx.cookies.set('uid',user['USER_UUID'],{
-			maxAge:1000 * 60 * 10
+			maxAge:1000 * 60 * 60 * 24 * 3 
 		});
-		ctx.body = "success";
+		ctx.body = '{"status":1,"redirect":"/home"}';
 	}else{
-		ctx.body = 'failed';
+		ctx.body = '{"status":0}';
 	}
 	
+});
+router.get('/logout',async (ctx,next)=>{
+	ctx.cookies.set('uid','',{
+		maxAge:-1
+	});
+	//ctx.body = '{"redirect":"/"}';
+	ctx.response.redirect("/");
 });
 module.exports = router;
