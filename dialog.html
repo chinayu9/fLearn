@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>利用before/after伪元素实现对话框效果</title>
+	<style type="text/css">
+		.test{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ccc;
+			padding: 20px;
+			position: relative;
+		}
+		.test2{
+			position: absolute;
+			top: -9px;
+			left:100px;
+		}
+		.test2:after{
+			content: "";
+			border-bottom: 9px solid #fff;
+			border-right: 7px solid transparent;
+			border-left: 7px solid transparent;
+			position: absolute;
+			top: 2px;
+		}
+		.test2:before{
+			content: "";
+			border-bottom: 9px solid #ccc ;
+			border-right: 7px solid transparent;
+			border-left: 7px solid transparent;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<!--首先通过border属性形成两个三角形,然后调整位置覆盖三角形的一部分-->
+	<div class="test">
+		<span class="test2"></span>
+		<span>今天是美好的一天</span>
+	</div>
+</body>
+</html>
