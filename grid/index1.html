@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>grid test</title>
+	<style type="text/css">
+		.grid{
+			display: grid;
+			grid-template-columns:100px 100px 100px 100px 100px;
+			grid-template-rows:100px 100px 100px 100px;
+			grid-template-areas:
+			'title title title title aside'
+			'nav main main main aside'
+			'nav main main main aside'
+			'footer footer footer footer footer';
+			
+		}
+		.title{
+			background-color: #b03532;
+			grid-area:title;
+		}
+		.nav{
+			background-color: #33a8a5;
+			grid-area:nav;
+		}
+		.main{
+			background-color: #30997a;
+			grid-area:main;
+		}
+		.aside{
+			background-color: #6a478f;
+			grid-area:aside;
+		}
+		.footer{
+			background-color: #da6f2b;
+			grid-area:footer;
+		}
+	</style>
+</head>
+<body>
+	<section class="grid">
+		<div class="title">title</div>
+		<div class="nav">nav</div>
+		<div class="main">main</div>
+		<div class="aside">aside</div>
+		<div class="footer">footer</div>
+	</section>
+</body>
+</html>

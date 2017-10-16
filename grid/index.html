@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Grid布局</title>
+	<style type="text/css">
+
+		.grid-container{
+			display: grid;
+			grid-template-columns:3fr 2fr 1fr;
+			grid-template-rows:100px 50px;
+			margin: 0 auto;
+			max-width: 1200px;
+			
+		}
+		.grid-item{
+			color:#fff;
+			font-size: 24px;
+			text-align: center;
+		}
+		.item-1{
+			background-color: #b03532;
+		}
+		.item-2{
+			background-color: #33a8a5;
+			grid-column-end: -1;
+			grid-row : -3 / -2 ;
+		}
+		.item-3{
+			background-color: #30997a;
+			grid-column : 1 / span 2;
+			grid-row:2 ;
+		}
+		.item-4{
+			background-color: #6a478f;
+			grid-area:2 / 3 / span 2;
+		}
+		.item-5{
+			background-color: #da6f2b;
+		}
+		.item-6{
+			background-color: #3d8bb1;
+		}
+	</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="grid-item item-1">1</div>
+		<div class="grid-item item-2">2</div>
+		<div class="grid-item item-3">3</div>
+		<div class="grid-item item-4">4</div>
+		<div class="grid-item item-5">5</div>
+		<div class="grid-item item-6">6</div>
+		
+	</div>
+
+</body>
+</html>

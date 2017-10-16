@@ -1,0 +1,81 @@
+https://www.w3cplus.com/css3/playing-with-css-grid-layout.html
+
+display:grid、inline-grid、subgrid声明grid容器，其子元素就成为grid项目
+
+网格线：水平方向的网格线从左向右，垂直方向是从上往下，编号从1开始
+网格线序列号可以是负数，从-1到-n,水平方向从右到左，垂直方向从下向上
+如果想让某个网格项目始终在最后一列，可以使用grid-column-end:-1
+网格线除了使用数字来表示，还可以给每条网格线命名
+
+span 关键词实现单元格的跨越，类似于合并单元格
+
+网格区域 ： grid-template-area声明
+网格轨道 ： 网格中相邻两条网格线组成的区域，其实就是网格的行或列
+网格单元格 ： 网格行和列交叉点。定位网格项目时网格的最小单位。（多个单元格可以构成一个网格区域）
+
+grid容器属性：
+  grid-template-columns : 设置每列的列宽
+  grid-template-rows : 设置每行的行高
+  grid-template-areas : 声明网格区域(详见index1.html)
+  grid-template : grid-template-rows / grid-template-columns / grid-template-areas缩写
+  grid-gap : 指定列（或行）的间距，grid-column-gap grid-row-gap缩写
+  jusify-content : 设置网格容器内网格的对齐方式(垂直方向)(当网格大小小于其网格容器的大小时)
+  				start : 网格与网格容器左端对齐
+  				end : 网格与网格容器右端对齐
+  				center : 网格与网格容器居中对齐
+  				stretch : 调整网格项的大小，使其宽度填充整个网格容器
+  				space-around : 在网格项之间设置偶数个空格间隙，其最边缘间隙大小为中间空格间隙大小的一半
+  				space-between : 在网格项之间设置偶数个空格间隙，其最边缘不存在空格间隙
+  				space-evenly : 在网格项之间设置偶数个空格间隙，同样适用于最边缘区域
+
+  align-content : 设置网格容器与网格的对齐方式(水平方向)(当网格大小小于其网格容器的大小时)
+  				start : 网格与网格容器左端对齐
+  				end : 网格与网格容器右端对齐
+  				center : 网格与网格容器居中对齐
+  				stretch : 调整网格项的大小，使其宽度填充整个网格容器
+  				space-around : 在网格项之间设置偶数个空格间隙，其最边缘间隙大小为中间空格间隙大小的一半
+  				space-between : 在网格项之间设置偶数个空格间隙，其最边缘不存在空格间隙
+  				space-evenly : 在网格项之间设置偶数个空格间隙，同样适用于最边缘区域
+
+  justify-items : 沿列轴对齐网格项中的内容
+  				start : 内容与网格区域左端对齐
+  				end : 内容与网格区域右端对齐
+  				center : 内容处于网格区域中间
+  				stretch : 内容宽度占据整个网格区域空间(default)
+
+  align-item : 沿行轴对齐网格项中的内容
+  				start : 内容与网格区域左端对齐
+  				end : 内容与网格区域右端对齐
+  				center : 内容处于网格区域中间
+  				stretch : 内容宽度占据整个网格区域空间(default)
+
+  grid-auto-flow : 控制自动布局算法的工作原理
+  				row : 告诉自动布局算法填充每一行，必要时添加新行(default)
+  				column : 告诉自动布局算法填充每一列，必要时添加新列
+  				dense : 告诉自动布局算法试图填补网格中之前较小的网格项留有的空白
+
+
+
+
+grid项目属性：
+  grid-column-start : 指定网格线在垂直方向开始编号(default auto)
+  grid-column-end : 指定网格线在垂直方向结束编号(default auto)
+  grid-row-start ： 指定网格线在水平方向开始编号(default auto)
+  grid-row-end : 知道网格线在水平方向结束编号(default auto)
+  grid-column : grid-column-start / grid-column-end缩写方式
+  grid-row : grid-row-start / grid-row-end缩写方式
+  grid-area : grid-row-start / grid-column-start / grid-row-end / grid-column-end缩写方式,也可以使用grid-template-areas声明的网格区域
+  缩写方式如果少设置了属性，则使用default auto,自动默认为span的值为1
+  grid-auto-columns、grid-auto-rows ： 创建隐式网格
+
+  jusitify-self : 沿列轴对齐网格项中的内容
+  				start : 内容与网格区域左端对齐
+  				end : 内容与网格区域右端对齐
+  				center : 内容与网格区域居中对齐
+  				stretch : 内容宽度占据整个网格区域空间(default)
+
+  align-self : 沿行轴对齐网格项中的内容
+  				start : 内容与网格区域左端对齐
+  				end : 内容与网格区域右端对齐
+  				center : 内容与网格区域居中对齐
+  				stretch : 内容宽度占据整个网格区域空间(default)
