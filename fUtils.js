@@ -18,6 +18,7 @@ findIndex    正向查找指定元素
 findLastIndex  反向查找指定元素
 each          遍历数组(类数组)或对象
 curry      函数柯里化
+memorize   函数记忆
  */
 (function(global,factory){
 	"use strict";
@@ -521,5 +522,21 @@ curry      函数柯里化
 	}
 	//函数柯里化本质上是降低通用性，提高适用性。
 	fUtils.prototype.curry = curry2;
+
+	//函数记忆
+	function memorize(func,hasher){
+		var memorize = function(key){
+			var cache = memorize.cache;
+			var address = '' + (hasher ? hasher.apply(this,arguments) : key);
+			if (!cache[address]) {
+				cache[address] = func.apply(this,arguments);
+			}
+			return cache[address];
+		};
+		memorize.cache = {};
+		return memorize;
+		
+	}
+	fUtils.prototype.memorize = memorize;
 	window.fUtils = new fUtils;
 });
