@@ -9,8 +9,8 @@ module.exports = {
 	devtool:"eval-source-map",//source-map  方便调试
 	devServer:{
 		contentBase:"./build",//本地服务器所加载页面所在目录
-		inline:false,//实时刷新
-		historyApiFallbakc:true,
+		inline:true,//实时刷新
+		historyApiFallback:true,
 		port:3000,
 		hot:true
 	},
