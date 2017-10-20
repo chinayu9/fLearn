@@ -1,0 +1,27 @@
+npm init
+npm install --save-dev webpack webpack-dev-server
+
+
+React相关安装
+npm install --save-dev react react-dom
+
+Babel相关安装
+npm install --save-dev  babel-core babel-loader babel-preset-es2015 babel-preset-react
+（babel-preset-es2015解析ES6    babel-preset-react解析JSX）
+
+
+CSS相关安装
+npm install --save-dev style-loader css-loader
+
+
+
+插件相关安装
+npm install --save-dev html-webpack-plugin  
+(依据一个简单的index.tmpl.html模板，生成一个自动引用打包后的JS文件的新的index.html)
+
+
+
+热模块替换 Hot Module Replacement
+npm install --save-dev babel-plugin-react-transform react-transform-hmr
+1.在webpack配置文件中添加HMR插件
+2.在webpack dev server中添加"hot"参数
