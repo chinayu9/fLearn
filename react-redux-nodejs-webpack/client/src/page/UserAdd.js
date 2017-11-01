@@ -28,6 +28,7 @@ class UserAdd extends React.Component{
 		.then((res)=>{
 			//console.log(res);
 			if (res.id) {
+				this.props.history.push('/user/list');
 				alert('添加用户成功');
 			}else{
 				alert('添加失败');
