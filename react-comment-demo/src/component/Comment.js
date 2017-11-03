@@ -20,13 +20,14 @@ class Comment extends React.Component{
 		clearInterval(this._timer);
 		
 	}
-	componentWillUpdate(){
-		const comment = this.props.comment;
+	componentWillReceiveProps(nextProps){
+		const comment = nextProps.comment;
 		const duration = (+new Date() - comment.createTime) / 1000;
-		console.log(comment);
-		this.state.timeString = duration > 60 ? `${Math.round(duration / 60)} 分钟前` : `${Math.round(Math.max(duration,1))} 秒前`;
-		
+		this.setState({
+			timeString:duration > 60 ? `${Math.round(duration / 60)} 分钟前` : `${Math.round(Math.max(duration,1))} 秒前`
+		});
 	}
+	
 	_updateTimeString(){
 		const comment = this.props.comment;
 		const duration = (+new Date() - comment.createTime) / 1000;

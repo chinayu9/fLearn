@@ -38,6 +38,7 @@ class CommentApp extends React.Component{
 	handleDeleteComment(index){
 		const comments = [...this.state.comments];
 		comments.splice(index,1);
+
 		this._saveComments(comments);
 		this.setState({comments});
 

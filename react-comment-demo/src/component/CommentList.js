@@ -18,8 +18,9 @@ class CommentList extends React.Component{
 	}
 
 	render(){
-		
+
 		const comments = this.props.comments;
+		
 		return (
 			<div className="comment-list">
 				{
