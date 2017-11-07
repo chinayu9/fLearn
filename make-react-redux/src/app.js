@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes  from 'prop-types';
 import ReactDOM from 'react-dom';
 import style from './style.css';
-import Header from './Header';
-import Content from './Content';
+import Header from './containers/Header';
+import Content from './containers/Content';
 import {Provider } from './react-redux';
 
 
