@@ -5,6 +5,8 @@
 [无序列表](#无序列表)
 [有序列表](#有序列表)
 [代码区块](#代码区块)
+[图片](#图片)
+[表格](#表格)
 
 
 
@@ -65,6 +67,20 @@
 		func.apply(context,args);
 	};
 
+
+```js
+
+var later = function(){
+		previous = options.leading === false ? 0 : +new Date();
+		timeout = null;
+		func.apply(context,args);
+	};
+
+```
+
+
+
+
 *******
 [百度](http://www.baidu.com)
 
@@ -82,9 +98,19 @@ _强调内容2_
 
 `这是一段行内代码`
 
-
+<div id="图片"></div>
 ![alt text](https://www.google.com/logos/doodles/2017/131st-anniversary-of-the-hole-puncher-5763551741345792.3-law.gif)
 
 
 
+<div id="表格"></div>
 
+|普通标题1|普通标题2|普通标题3|
+|--------|-----|------|
+|内容1|内容2|内容3|
+
+
+
+|左对齐|右对齐|居中|
+|:--------|-----:|:------:|
+|内容1|内容2|内容3|
