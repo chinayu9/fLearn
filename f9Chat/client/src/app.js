@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import style from './style.css';
-class Hello extends React.Component{
-	render(){
-		return <input type="text" name="nname"/>;
-	}
-}
-let ele = <div>
-	<h1>hello webpack and react</h1>
-	<Hello />
-</div>;
+import Login from './containers/Login';
+import { createStore,applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import reduxThunkMiddleware from 'redux-thunk';
+import AppReducer from './reducers/AppReducer';
+
+const store = createStore(AppReducer,applyMiddleware(reduxThunkMiddleware));
 
 ReactDOM.render(
-	ele,
+	<Provider store={store}>
+		<Login />
+	</Provider>,
 	document.getElementById("root")
 );

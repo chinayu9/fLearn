@@ -1,0 +1,35 @@
+.login-container{
+	width: 600px;
+	height: 300px;
+	margin: 200px auto 0;
+	padding: 20px;
+	border:1px solid #ccc;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.login-item{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	line-height: 30px;
+}
+
+.login-item label{
+	color: #f0f;
+	font-size: 16px;
+}
+.login-item input{
+	height: 30px;
+	width: 200px;
+	outline: none;
+	padding: 0 6px;
+	color: #f12345;
+	font-size: 16px;
+}
+
+.login-btn{
+	width: 80px;
+	height: 40px;
+}
