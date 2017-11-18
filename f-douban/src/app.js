@@ -1,17 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import style from './style.css';
-class Hello extends React.Component{
-	render(){
-		return <input type="text" name="nname"/>;
-	}
-}
-let ele = <div>
-	<h1>hello webpack and react</h1>
-	<Hello />
-</div>;
-
+import Nav from './components/Nav';
 ReactDOM.render(
-	ele,
+	<Nav />,
 	document.getElementById("root")
 );

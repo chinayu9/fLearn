@@ -1,3 +1,30 @@
-body{
-	background: #ddd;
+*{
+	margin: 0;
+	padding: 0;
+}
+nav{
+	background: #f1efef;
+}
+.movie-list-container{
+	display: flex;
+	list-style: none;
+	width: 760px;
+	margin:0 auto;
+	justify-content: space-between;
+}
+
+.movie-list-item{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 3px;
+	cursor: pointer;
+	color: #85b2b9;
+}
+
+.movie-list-item:hover{
+	background: #00dcff;
+	color: #fff;
+}
+.movie-list-active{
+	color: #e84822;
 }
