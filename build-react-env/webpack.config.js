@@ -4,7 +4,8 @@ module.exports = {
 	entry:__dirname + "/src/app.js",
 	output:{
 		path:__dirname + '/build',
-		filename:"bundle-[hash].js"
+		filename:"bundle-[hash].js",
+		publicPath:"/"
 	},
 	devtool:"eval-source-map",//source-map  方便调试
 	devServer:{
