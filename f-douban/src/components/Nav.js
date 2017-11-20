@@ -1,11 +1,11 @@
 import React,{ Component } from 'react';
-import MovieList from './MovieList';
+import MovieCategory from './MovieCategory';
 
 class Nav extends Component{
 	render(){
 		return (
 			<nav>
-				<MovieList />
+				<MovieCategory />
 			</nav>
 		);
 	}

@@ -1,37 +1,32 @@
 import React,{ Component } from 'react';
 import MovieListItem from './MovieListItem';
 
-
 class MovieList extends Component{
 	constructor(){
 		super();
 		this.state = {
-			listNames : [],
-			listActive:0
+			subjects:[]
 		};
 	}
-	componentDidMount(){
-		this.setState({
-			listNames : ["正在热映","即将上映","Top250","口碑榜","北美票房榜","新片榜"]
-		});
+	componentWillMount(){
+		fetch("https://api.douban.com/v2/movie/in_theaters")
+			.then(res=>res.json())
+			.then(res=>{
+				this.setState({
+					subjects:res.subjects
+				});
+			});
 	}
 
-	onClickHandler(index){
-		this.setState({
-			listActive:index
-		});
-	}
 	render(){
 		return (
 			<ul className="movie-list-container">
 				{
-					this.state.listNames.map((listName,index)=>
+					this.state.subjects.map((subject,index)=>
 						<MovieListItem 
-							listName={listName} 
-							key={index}
-							index={index}
-							listActive={this.state.listActive === index ? true : false} 
-							onClickHandler={this.onClickHandler.bind(this)}
+							key={subject.id}
+							id={subject.id}
+							subject={subject}
 					/>)
 				}
 			</ul>
