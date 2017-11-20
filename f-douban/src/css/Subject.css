@@ -1,0 +1,59 @@
+.sub-content{
+	width: 760px;
+	margin: 0 auto;
+}
+.sub-title{
+	font-size: 26px;
+	color:#494949;
+}
+.sub-year{
+	color: #888;
+	font-size: 26px;
+}
+.sub-wrapper{
+	display: flex;
+	margin-top: 20px;
+}
+.sub-poster{
+	width: 140px;
+	height: 200px;
+	margin-right: 15px;
+}
+.sub-info{
+	display: flex;
+	flex-direction: column;
+	max-width: 400px;
+	flex-grow: 1;
+}
+.pl{
+	color: #666666;
+	font-size: 13px;
+}
+.attrs a{
+	margin-right: 5px;
+}
+a:link{
+	color: #37a;
+}
+a:visited{
+	color: #666699;
+}
+
+.rating-container{
+	border-left: 1px solid #ddd;
+	padding-left: 15px;
+}
+.rating-title{
+	font-size: 13px;
+	color: #ccc;
+}
+.rating-average{
+	font-size: 28px;
+	color: #494949;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.rating-count{
+	color: #37a;
+	font-size: 20px;
+}

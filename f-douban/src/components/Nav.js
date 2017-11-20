@@ -5,7 +5,11 @@ class Nav extends Component{
 	render(){
 		return (
 			<nav>
-				<MovieCategory />
+				<MovieCategory 
+					onClickHandler={this.props.onClickHandler} 
+					categoryNames={this.props.categoryNames}
+					categoryActive={this.props.categoryActive}
+				/>
 			</nav>
 		);
 	}
