@@ -6,7 +6,7 @@ class Content extends Component{
 		return (
 			<div className="ct-box">
 				<ContentMenu />
-				<ContentBody />
+				<ContentBody {...this.props}/>
 			</div>
 		);
 	}

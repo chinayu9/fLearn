@@ -8,23 +8,23 @@ class ContentMenu extends Component{
 			ctMenu:[
 				{
 					title:"全部",
-					path:"/all"
+					path:"/?tab=all"
 				},
 				{
 					title:"精华",
-					path:"/good"
+					path:"/?tab=good"
 				},
 				{
 					title:"分享",
-					path:"/share"
+					path:"/?tab=share"
 				},
 				{
 					title:"问答",
-					path:"/ask"
+					path:"/?tab=ask"
 				},
 				{
 					title:"招聘",
-					path:"/job"
+					path:"/?tab=job"
 				}
 			],
 			curIndex:0

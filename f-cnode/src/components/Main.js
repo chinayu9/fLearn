@@ -6,7 +6,7 @@ class Main extends Component{
 	render(){
 		return (
 			<div id="main">
-				<Content />
+				<Content {...this.props}/>
 				<SideBar />
 			</div>
 		);

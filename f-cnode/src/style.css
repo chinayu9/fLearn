@@ -209,7 +209,7 @@ a{
 	border-radius: 4px;
 	height: 30px;
 }
-.pagination-item{
+.pagination-item a{
 	font-size: 14px;
 	padding: 4px 12px;
 	line-height: 20px;
@@ -217,23 +217,25 @@ a{
 	border: 1px solid #ddd;
 	border-left-width: 0;
 	cursor: pointer;
+	color: #778087;
 }
-.pagination-item:first-child{
+
+.pagination-item:first-child a{
 	border-left-width: 1px;
 	border-radius: 4px 0 0 4px;
 }
-.pagination-item:last-child{
+.pagination-item:last-child a{
 	border-radius: 0 4px 4px 0;
 }
-.pagination-item:not(.disabled):hover{
+.pagination-item:not(.disabled) a:hover{
 	background: #f5f5f5;
 }
-.disabled{
+.disabled a{
 	color: #999;
 	cursor:default;
 }
 
-.active{
+.active a{
 	color: #80bd01;
 }
 /**************sidebar*********************/
