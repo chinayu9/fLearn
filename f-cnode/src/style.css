@@ -109,6 +109,7 @@ a{
 }
 .ct-bd{
 	background: #fff;
+	border-radius: 0 0 4px 4px;
 }
 
 .topic-list{
@@ -199,9 +200,41 @@ a{
 	
 }
 #pagination{
-	width: 200px;
-	height: 100px;
-	border: 1px solid #f00;
+	height: 40px;
+	margin: 10px 0 0 10px;
+	color: #778087;
+}
+#pagination ul{
+	display: inline-flex;
+	border-radius: 4px;
+	height: 30px;
+}
+.pagination-item{
+	font-size: 14px;
+	padding: 4px 12px;
+	line-height: 20px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-left-width: 0;
+	cursor: pointer;
+}
+.pagination-item:first-child{
+	border-left-width: 1px;
+	border-radius: 4px 0 0 4px;
+}
+.pagination-item:last-child{
+	border-radius: 0 4px 4px 0;
+}
+.pagination-item:not(.disabled):hover{
+	background: #f5f5f5;
+}
+.disabled{
+	color: #999;
+	cursor:default;
+}
+
+.active{
+	color: #80bd01;
 }
 /**************sidebar*********************/
 
