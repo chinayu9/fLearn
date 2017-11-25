@@ -9,7 +9,10 @@ class Home extends Component{
 		const maxPage = 88;
 		let pagText = this.updatePagText(maxPage,curPage);
 		const { search } = props.location;
-		console.log(search+"======");
+		if (search) {
+			tab = search.slice(5,8);
+			curPage = +search.slice(14);
+		}
 		this.state={
 			tab,
 			curPage,
@@ -19,7 +22,7 @@ class Home extends Component{
 		};
 	}
 	componentWillMount(){
-		fetch(`https://cnodejs.org/api/v1/topics?tab=${this.state.tab}&page=${this.state.page}`)
+		fetch(`https://cnodejs.org/api/v1/topics?tab=${this.state.tab}&page=${this.state.curPage}`)
 			.then(res=>res.json())
 			.then(res=>{
 				if (res.success) {
@@ -27,10 +30,33 @@ class Home extends Component{
 						topicList:res.data
 					});
 				}
-				console.log(res.data);
 			});
 	}
 
+	componentWillReceiveProps(nextProps){
+		let tab = "all";
+		let curPage = 1;
+		const maxPage = 88;
+		const { search } = nextProps.location;
+		if (search) {
+			tab = search.slice(5,8);
+			curPage = +search.slice(14);
+		}
+		let pagText = this.updatePagText(maxPage,curPage);
+		fetch(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${curPage}`)
+			.then(res=>res.json())
+			.then(res=>{
+				if (res.success) {
+					this.setState({
+						topicList:res.data,
+						tab,
+						curPage,
+						maxPage,
+						pagText
+					});
+				}
+			});
+	}
 	updatePagText(maxPage,curPage){
 		let pagText = [];
 		//maxPage<=5  

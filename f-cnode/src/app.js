@@ -6,7 +6,9 @@ import Home from './components/Home';
 
 ReactDOM.render(
 	<Router>
-		<Route exact path="/" component={Home} />
+		<div>
+			<Route exact path="/" component={Home} />
+		</div>
 	</Router>,
 	document.getElementById("root")
 );
