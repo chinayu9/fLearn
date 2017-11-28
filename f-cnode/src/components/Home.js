@@ -1,18 +1,19 @@
 import React,{ Component } from 'react';
 import Header from './Header';
 import Main from './Main';
+import { getUrlParam } from '../utils/fUtils';
 class Home extends Component{
 	constructor(props){
 		super(props);
 		let tab = "all";
 		let curPage = 1;
 		const maxPage = 88;
-		let pagText = this.updatePagText(maxPage,curPage);
 		const { search } = props.location;
 		if (search) {
-			tab = search.slice(5,8);
-			curPage = +search.slice(14);
+			tab = getUrlParam(search,"tab");
+			curPage = +( getUrlParam(search,"page") || 1 );
 		}
+		let pagText = this.updatePagText(maxPage,curPage);
 		this.state={
 			tab,
 			curPage,
@@ -39,8 +40,8 @@ class Home extends Component{
 		const maxPage = 88;
 		const { search } = nextProps.location;
 		if (search) {
-			tab = search.slice(5,8);
-			curPage = +search.slice(14);
+			tab = getUrlParam(search,"tab");
+			curPage = +( getUrlParam(search,"page") || 1 );
 		}
 		let pagText = this.updatePagText(maxPage,curPage);
 		fetch(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${curPage}`)

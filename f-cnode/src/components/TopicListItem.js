@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { Link } from 'react-router-dom';
-import { format } from '../utils/DateFormat';
+import { dateFormat } from '../utils/fUtils';
 class TopicListItem extends Component{
 	render(){
 		const { topic } = this.props;
@@ -24,7 +24,7 @@ class TopicListItem extends Component{
 				<div className="reply-box">
 					<div className="reply-inner">
 						<img className="last-replyer-avatar" src={topic.author.avatar_url}  />
-						<span className="last-reply-time" >{format(topic.last_reply_at)}</span>
+						<span className="last-reply-time" >{dateFormat(topic.last_reply_at)}</span>
 					</div>
 				</div>
 			</li>

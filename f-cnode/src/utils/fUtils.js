@@ -1,4 +1,4 @@
-export const format = (dateStr)=>{
+export const dateFormat = (dateStr)=>{
 	const oneSeconds = 1;
 	const oneMinute = oneSeconds * 60;
 	const oneHour = oneMinute * 60;
@@ -27,4 +27,16 @@ export const format = (dateStr)=>{
 		return "百年前"
 	}
 	
+};
+
+export const getUrlParam = (search,name)=>{
+	let str = search.substring(1);
+	let searches = str.split("&");
+	for(let i = 0 ;i < searches.length;i++){
+		let tmp = searches[i].split("=");
+		if (tmp[0] === name) {
+			return tmp[1];
+		}
+	}
+	return null;
 };

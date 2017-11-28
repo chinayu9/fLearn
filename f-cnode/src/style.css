@@ -14,6 +14,10 @@ ul{
 a{
 	text-decoration: none;
 }
+img{
+	height: auto;
+	max-width: 100%;
+}
 
 /***********header********************/
 #header{
@@ -248,5 +252,117 @@ a{
 .sidebar{
 	width:290px;
 	font-size: 14px;
-	border: 1px solid #f00;
+}
+.panel{
+	font-size: 13px;
+	margin-bottom: 13px;
+}
+.p-header{
+	color: #51585c;
+	border-radius: 3px 3px 0 0;
+	padding: 10px;
+	background-color: #f6f6f6;
+}
+.col-fade{
+	color: #444;
+}
+.col-fade a{
+	color: #666;
+}
+.p-inner{
+	padding: 10px;
+	border-radius: 0 0 3px 3px;
+	background-color: #fff;
+}
+.user-header{
+	display: flex;
+	align-items: center;
+}
+.user-avatar{
+	width: 48px;
+	height: 48px;
+	border-radius: 3px;
+	margin-right: .5em;
+}
+.user-name{
+	font-size: 16px;
+	max-width: 120px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	line-height: 2em;
+	color: #778087;
+}
+.user-integration{
+	margin-top: 10px;
+	width: 80%;
+	line-height: 2em;
+	font-size: 14px;
+}
+.user-signature{
+	font-style: italic;
+	line-height: 2em;
+}
+
+.span-success{
+	border-radius: 3px;
+	background-color: #80bd01;
+	padding: 8px 10px;
+	font-size: 14px;
+	transition: all .2s ease-in-out;
+	letter-spacing: 2px;
+	vertical-align: middle;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+}
+.span-success a{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+}
+.sep10{
+	height: 10px;
+}
+.p-inner ul{
+	margin-bottom: 10px;
+}
+.sidebar .topic-title{
+	max-width: 270px;
+	font-size: 14px;
+	color: #778087;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	line-height: 2em;
+	display: block;
+	margin: 0;
+	width: 100%;
+}
+
+.p-inner ol{
+	margin: 4px 0;
+	list-style: none;
+}
+.top-score{
+	color: gray;
+	padding: 2px;
+	margin-right:10px;
+}
+.p-inner ol a{
+	color: #778087;
+	font-size: 13px;
+}
+.friendship-community img{
+	width: 150px;
+}
+.cnode-app-download{
+	text-align: center;
+}
+.qrcode-img{
+	width: 200px;
+}
+.cnode-app-download a{
+	color: #778087;
+	margin-top: 8px;
 }
