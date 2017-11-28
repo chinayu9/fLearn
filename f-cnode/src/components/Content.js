@@ -5,7 +5,7 @@ class Content extends Component{
 	render(){
 		return (
 			<div className="ct-box">
-				<ContentMenu />
+				<ContentMenu ctMenu={this.props.ctMenu} tab={this.props.tab}/>
 				<ContentBody {...this.props}/>
 			</div>
 		);

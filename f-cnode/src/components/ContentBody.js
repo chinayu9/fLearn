@@ -6,7 +6,7 @@ class ContentBody extends Component{
 		const { topicList,pagText,curPage,maxPage,tab } = this.props;
 		return (
 			<div className="ct-bd">
-				<TopicList topicList={topicList}/>
+				<TopicList topicList={topicList} tab={tab}/>
 				<Pagination 
 					pagText={pagText}
 					curPage={curPage}

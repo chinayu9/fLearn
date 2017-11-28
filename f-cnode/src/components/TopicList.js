@@ -3,7 +3,7 @@ import TopicListItem from './TopicListItem';
 class TopicList extends Component{
 	
 	render(){
-		const { topicList } = this.props;
+		const { topicList,tab } = this.props;
 		return (
 			<div className="topic-list">
 				<ul>
@@ -11,7 +11,8 @@ class TopicList extends Component{
 						topicList.map((topic,index)=>
 							<TopicListItem 
 								key={topic.id} 
-								topic={topic} />)
+								topic={topic}
+								tab={tab} />)
 					}
 				</ul>
 			</div>

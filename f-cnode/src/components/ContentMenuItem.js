@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 class ContentMenuItem extends Component{
 	render(){
-		const { item,curIndex,index } = this.props; 
+		const { item,tab } = this.props; 
 		return (
-			<li className={curIndex===index ? "topic-tab current-tab" : "topic-tab" }><Link to={item.path}>{item.title}</Link></li>
+			<li className={tab===item.tab ? "topic-tab current-tab" : "topic-tab" }><Link to={item.path}>{item.title}</Link></li>
 		);
 	}
 }

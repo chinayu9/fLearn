@@ -7,7 +7,7 @@ class Home extends Component{
 		super(props);
 		let tab = "all";
 		let curPage = 1;
-		const maxPage = 88;
+		const maxPage = 30;
 		const { search } = props.location;
 		if (search) {
 			tab = getUrlParam(search,"tab");
@@ -20,6 +20,33 @@ class Home extends Component{
 			maxPage,
 			pagText,
 			topicList:[],
+			ctMenu:[
+				{
+					title:"全部",
+					path:"/?tab=all",
+					tab:"all"
+				},
+				{
+					title:"精华",
+					path:"/?tab=good",
+					tab:"good"
+				},
+				{
+					title:"分享",
+					path:"/?tab=share",
+					tab:"share"
+				},
+				{
+					title:"问答",
+					path:"/?tab=ask",
+					tab:"ask"
+				},
+				{
+					title:"招聘",
+					path:"/?tab=job",
+					tab:"job"
+				}
+			]
 		};
 	}
 	componentWillMount(){
@@ -37,7 +64,7 @@ class Home extends Component{
 	componentWillReceiveProps(nextProps){
 		let tab = "all";
 		let curPage = 1;
-		const maxPage = 88;
+		const maxPage = 30;
 		const { search } = nextProps.location;
 		if (search) {
 			tab = getUrlParam(search,"tab");

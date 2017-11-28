@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { dateFormat } from '../utils/fUtils';
 class TopicListItem extends Component{
 	render(){
-		const { topic } = this.props;
+		const { topic,tab } = this.props;
 		const topiclistTab = {
 			"ask":"问答",
 			"share":"分享",
@@ -11,6 +11,7 @@ class TopicListItem extends Component{
 		};
 		const topiclistTabText = topic.top ? "置顶" : (topic.good ? "精华" : topiclistTab[topic.tab]);
 		const topiclistTabClassName = "topiclist-tab " + (topic.top ? "put-top" : (topic.good ? "put-good" : ""));
+		const showTopiclistTabClassName = topiclistTab[tab] ? false : true;
 		return (
 			<li className="topic-list-item">
 				<img className="publisher-avatar" src={topic.author.avatar_url} title={topic.author.loginname} />
@@ -19,7 +20,8 @@ class TopicListItem extends Component{
 					<span className="count-seperator">/</span>
 					<span title="点击数" className="visit-count">{topic.visit_count}</span>
 				</div>
-				<span className={topiclistTabClassName}>{topiclistTabText}</span>
+				{ showTopiclistTabClassName ? <span className={topiclistTabClassName}>{topiclistTabText}</span> : 
+					((topiclistTabText === "置顶" || topiclistTabText === "精华") ? <span className={topiclistTabClassName}>{topiclistTabText}</span> : "")}		
 				<div className="topic-title" title={topic.title}><Link to={`/topic/${topic.id}`}>{topic.title}</Link></div>
 				<div className="reply-box">
 					<div className="reply-inner">
