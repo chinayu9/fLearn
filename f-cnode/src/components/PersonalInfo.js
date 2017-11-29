@@ -9,7 +9,7 @@ class PersonalInfo extends Component{
 				<div className="p-inner">
 					<div className="user-card">
 						<div className="user-header">
-							<img src="https://avatars2.githubusercontent.com/u/31837136?v=4&s=120" className="user-avatar"/>
+							<a className="user-avatar" href=""><img src="https://avatars2.githubusercontent.com/u/31837136?v=4&s=120" /></a>
 							<span className="user-name">chinayu9</span>
 						</div>
 						<div className="user-integration">积分：25</div>

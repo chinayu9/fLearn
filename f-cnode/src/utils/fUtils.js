@@ -12,15 +12,15 @@ export const dateFormat = (dateStr)=>{
 	const diff = Math.floor((now - oldDate) / 1000);
 	//console.log(diff);
 	if (Math.floor(diff / oneYear) > 0) {
-		return Math.floor(diff / oneYear) + "年前";
+		return Math.floor(diff / oneYear) + " 年前";
 	}else if (Math.floor(diff / oneMonth) > 0) {
-		return Math.floor(diff / oneMonth) + "个月前";
+		return Math.floor(diff / oneMonth) + " 个月前";
 	}else if (Math.floor(diff / oneDay) > 0) {
-		return Math.floor(diff / oneDay) + "天前";
+		return Math.floor(diff / oneDay) + " 天前";
 	}else if (Math.floor(diff / oneHour) > 0) {
-		return Math.floor(diff / oneHour) + "小时前";
+		return Math.floor(diff / oneHour) + " 小时前";
 	}else if (Math.floor(diff / oneMinute) > 0) {
-		return Math.floor(diff / oneMinute) + "分钟前";
+		return Math.floor(diff / oneMinute) + " 分钟前";
 	}else if (Math.floor(diff / oneSeconds) > 0) {
 		return "几秒前";
 	}else{

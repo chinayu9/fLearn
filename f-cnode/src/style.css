@@ -26,7 +26,11 @@ hr{
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #fff;
 }
-
+blockquote{
+	padding: 0 0 0 15px;
+	margin: 0 0 20px;
+	border-left: 5px solid #eee;
+}
 /***********header********************/
 #header{
 	width: 100%;
@@ -289,10 +293,14 @@ hr{
 	align-items: center;
 }
 .user-avatar{
-	width: 48px;
-	height: 48px;
+	
 	border-radius: 3px;
 	margin-right: .5em;
+	display: inline-block;
+}
+.user-card .user-avatar img{
+	width: 48px;
+	height: 48px;
 }
 .user-name{
 	font-size: 16px;
@@ -463,7 +471,13 @@ hr{
 .topic-content h3,
 .topic-content h4,
 .topic-content h5,
-.topic-content h6{
+.topic-content h6,
+.reply-area h1,
+.reply-area h2,
+.reply-area h3,
+.reply-area h4,
+.reply-area h5,
+.reply-area h6{
 	margin: 30px 0 15px;
 	border-bottom: 1px solid #eee;
 	line-height: 40px;
@@ -471,9 +485,77 @@ hr{
 .topic-content h1{
 	font-size: 32.5px;
 }
-.topic-content h2{
+.topic-content h2,
+.reply-area h2{
 	font-size: 26px;
 }
 .topic-content h3{
 	font-size: 24.5px;
+}
+
+/****************topic reply****************/
+
+.cell{
+	background: #fff;
+	border-top: 1px solid #f0f0f0;
+	position: relative;
+	padding: 10px;
+	font-size: 14px;
+}
+.cell.reply-highlight{
+	background: #f4fcf0;
+}
+.cell .user-avatar{
+	float: left;
+}
+.user-avatar img{
+	width: 30px;
+	height: 30px;
+	border-radius: 3px;
+}
+.user-info{
+	margin-left: 10px;
+	display: inline-block;
+}
+.reply-author{
+	color: #666;
+	font-size: 12px;
+	font-weight: 700;
+}
+.reply-time{
+	font-size: 11px;
+	color: #08c;
+}
+.user-action{
+	float: right;
+	margin-left: 20px;
+	font-size: 15px;
+}
+.up-btn,
+.reply2-btn{
+	cursor: pointer;
+	opacity: .4;
+}
+.user-action .up-count{
+	color: gray;
+}
+.reply-content{
+	padding-left: 50px;
+	color: #333;
+}
+.markdown-text>:last-child{
+	margin-bottom: 1em;
+}
+.reply-content p{
+	font-size: 15px;
+	line-height: 1.7em;
+}
+.markdown-text ul{
+	list-style: disc;
+}
+.cell .invisible{
+	visibility: hidden;
+}
+.cell:hover .invisible{
+	visibility: visible;
 }
