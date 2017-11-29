@@ -7,6 +7,7 @@ body{
 	background-color: #e1e1e1;
 	font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif !important;
 	color: #333;
+	line-height: 20px;
 }
 ul{
 	list-style: none;
@@ -18,6 +19,12 @@ a{
 img{
 	height: auto;
 	max-width: 100%;
+}
+hr{
+	margin:20px 0;
+	border:0;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #fff;
 }
 
 /***********header********************/
@@ -163,6 +170,8 @@ img{
 .put-top{
 	background: #80bd01;
 	color: #fff;
+	font-size: 12px;
+	padding: 2px 4px;
 }
 .topic-title{
 	margin-right: 20px;
@@ -375,4 +384,96 @@ img{
 	background: #fff;
 	border-radius: 3px 3px 0 0;
 	padding: 10px;
+}
+
+.topic-full-title{
+	font-size: 22px;
+	font-weight: 700;
+	margin: 8px 0;
+	vertical-align: bottom;
+	width: 75%;
+	line-height: 130%;
+}
+
+.changes{
+	font-size: 12px;
+	color: #838383;
+	overflow: hidden;
+	position: relative;
+}
+.changes span:before{
+	content:"•";
+}
+.collet-btn{
+	color: #fff;
+	border-radius: 3px;
+	border:none;
+	display: inline-block;
+	padding: 3px 10px;
+	font-size: 14px;
+	transition: all .2s ease-in-out;
+	letter-spacing: 2px;
+	box-shadow: none;
+	line-height: 2em;
+	vertical-align: middle;
+	background-color: #80bd01;
+	cursor: pointer;
+	float: right;
+}
+.collet-btn:hover{
+	background: #6ba44e;
+}
+.topic-inner{
+	padding: 10px;
+	border-top: 1px solid #e5e5e5;
+	border-radius: 0 0 3px 3px;
+	background-color: #fff;
+}
+.topic-content{
+	margin: 0 10px;
+}
+.markdown-text>:first-child{
+	margin-top: 0;
+}
+.topic-content p{
+	font-size: 15px;
+	line-height: 1.7em;
+	overflow: auto;
+}
+.markdown-text p{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	margin: 1em 0;
+}
+.markdown-text a{
+	color: #08c;
+}
+.markdown-text a:hover{
+	text-decoration: underline;
+}
+.markdown-text ul{
+	margin:0 0 10px 25px;
+}
+.markdown-text li{
+	line-height: 2em;
+	font-size: 14px;
+}
+.topic-content h1,
+.topic-content h2,
+.topic-content h3,
+.topic-content h4,
+.topic-content h5,
+.topic-content h6{
+	margin: 30px 0 15px;
+	border-bottom: 1px solid #eee;
+	line-height: 40px;
+}
+.topic-content h1{
+	font-size: 32.5px;
+}
+.topic-content h2{
+	font-size: 26px;
+}
+.topic-content h3{
+	font-size: 24.5px;
 }
