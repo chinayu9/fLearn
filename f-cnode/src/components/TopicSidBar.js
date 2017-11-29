@@ -7,7 +7,7 @@ import IntegerRanking from './IntegerRanking';
 import Community from './Community';
 import QRCode from './QRCode';
 
-class SideBar extends Component{
+class TopicSidBar extends Component{
 	render(){
 		return (
 			<div className="sidebar">
@@ -23,4 +23,4 @@ class SideBar extends Component{
 	}
 }
 
-export default SideBar;
+export default TopicSidBar;

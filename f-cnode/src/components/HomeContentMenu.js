@@ -1,13 +1,13 @@
 import React,{ Component } from 'react';
-import ContentMenuItem from './ContentMenuItem';
+import HomeContentMenuItem from './HomeContentMenuItem';
 
-class ContentMenu extends Component{
+class HomeContentMenu extends Component{
 	render(){
 		return (
 			<ul className="ct-menu">
 				{
 					this.props.ctMenu.map((item,index)=>
-						<ContentMenuItem 
+						<HomeContentMenuItem 
 							key={index} 
 							item={item}
 							tab={this.props.tab} />)
@@ -17,4 +17,4 @@ class ContentMenu extends Component{
 	}
 }
 
-export default ContentMenu;
+export default HomeContentMenu;

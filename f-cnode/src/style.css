@@ -13,6 +13,7 @@ ul{
 }
 a{
 	text-decoration: none;
+	color: #778087;
 }
 img{
 	height: auto;
@@ -84,7 +85,7 @@ img{
 }
 
 
-/*************content*******************/
+/*************home content*******************/
 
 .ct-box{
 	flex-grow: 1;
@@ -365,4 +366,13 @@ img{
 .cnode-app-download a{
 	color: #778087;
 	margin-top: 8px;
+}
+
+
+/**************topic detail******************/
+
+.topic-header{
+	background: #fff;
+	border-radius: 3px 3px 0 0;
+	padding: 10px;
 }

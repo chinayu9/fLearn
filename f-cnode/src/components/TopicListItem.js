@@ -7,14 +7,15 @@ class TopicListItem extends Component{
 		const topiclistTab = {
 			"ask":"问答",
 			"share":"分享",
-			"job":"招聘"
+			"job":"招聘",
+			"dev":"客户端测试"
 		};
 		const topiclistTabText = topic.top ? "置顶" : (topic.good ? "精华" : topiclistTab[topic.tab]);
 		const topiclistTabClassName = "topiclist-tab " + (topic.top ? "put-top" : (topic.good ? "put-good" : ""));
 		const showTopiclistTabClassName = topiclistTab[tab] ? false : true;
 		return (
 			<li className="topic-list-item">
-				<img className="publisher-avatar" src={topic.author.avatar_url} title={topic.author.loginname} />
+				<a><img className="publisher-avatar" src={topic.author.avatar_url} title={topic.author.loginname} /></a>
 				<div className="reply-visit-box">
 					<span title="回复数" className="reply-count">{topic.reply_count}</span>
 					<span className="count-seperator">/</span>

@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import TopicList from './TopicList';
 import Pagination from './Pagination';
-class ContentBody extends Component{
+class HomeContentBody extends Component{
 	render(){
 		const { topicList,pagText,curPage,maxPage,tab } = this.props;
 		return (
@@ -18,4 +18,4 @@ class ContentBody extends Component{
 	}
 }
 
-export default ContentBody;
+export default HomeContentBody;

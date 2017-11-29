@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-class ContentMenuItem extends Component{
+class HomeContentMenuItem extends Component{
 	render(){
 		const { item,tab } = this.props; 
 		return (
@@ -12,4 +12,4 @@ class ContentMenuItem extends Component{
 }
 
 
-export default ContentMenuItem;
+export default HomeContentMenuItem;

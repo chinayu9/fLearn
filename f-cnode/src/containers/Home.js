@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
-import Header from './Header';
-import Main from './Main';
+import Header from '../components/Header';
+import HomeMain from '../components/HomeMain';
 import { getUrlParam } from '../utils/fUtils';
 class Home extends Component{
 	constructor(props){
@@ -45,6 +45,11 @@ class Home extends Component{
 					title:"招聘",
 					path:"/?tab=job",
 					tab:"job"
+				},
+				{
+					title:"客户端测试",
+					path:"/?tab=dev",
+					tab:"dev"
 				}
 			]
 		};
@@ -114,7 +119,7 @@ class Home extends Component{
 		return (
 			<div>
 				<Header />
-				<Main {...this.state}/>
+				<HomeMain {...this.state}/>
 			</div>
 		);
 	}
