@@ -58,8 +58,8 @@ class TopicInfo extends Component{
 					</div>
 				</div>
 				<div className="topic-inner">
-					<div className="topic-content" >
-						<div className="markdown-text" dangerouslySetInnerHTML={{__html:topicDetail.content}}></div>
+					<div className="topic-content" dangerouslySetInnerHTML={{__html:topicDetail.content}}>
+						
 					</div>
 				</div>
 			</div>

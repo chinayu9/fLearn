@@ -8,7 +8,7 @@ class TopicContent extends Component{
 		return (
 			<div className="ct-box">
 				<TopicInfo topicDetail={this.props.topicDetail}/>
-				<TopicReply replies={this.props.topicDetail.replies}/>
+				{this.props.topicDetail.replies && this.props.topicDetail.replies.length > 0 ? <TopicReply replies={this.props.topicDetail.replies}/> : ""}
 			</div>
 		);
 	}
