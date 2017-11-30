@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import Header from '../components/Header';
 import HomeMain from '../components/HomeMain';
+import BackToTop from '../components/BackToTop';
 import { getUrlParam } from '../utils/fUtils';
 class Home extends Component{
 	constructor(props){
@@ -15,6 +16,7 @@ class Home extends Component{
 		}
 		let pagText = this.updatePagText(maxPage,curPage);
 		this.state={
+			backToTop:false,
 			tab,
 			curPage,
 			maxPage,
@@ -66,7 +68,18 @@ class Home extends Component{
 			});
 	}
 
+	componentDidMount(){
+		window.addEventListener("scroll",()=>{
+			const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			let backToTop = false;
+			backToTop = scrollTop > 700 ? true : false;
+			this.setState({
+				backToTop:backToTop
+			});
+		});
+	}
 	componentWillReceiveProps(nextProps){
+		window.scroll(0,0);
 		let tab = "all";
 		let curPage = 1;
 		const maxPage = 30;
@@ -118,6 +131,7 @@ class Home extends Component{
 	render(){
 		return (
 			<div>
+				{this.state.backToTop ? <BackToTop /> : ""}
 				<Header />
 				<HomeMain {...this.state}/>
 			</div>
