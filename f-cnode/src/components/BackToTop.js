@@ -3,7 +3,7 @@ import React,{ Component } from 'react';
 class BackToTop extends Component{
 	handleClickListener(){
 		//设置定时器
-	    let timer = setInterval(function(){
+	    let timer = setInterval(()=>{
 	      //获取滚动条距离顶部高度
 	      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
 	      var ispeed = Math.floor(-osTop / 7);

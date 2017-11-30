@@ -55,6 +55,7 @@ class Home extends Component{
 				}
 			]
 		};
+		this.scrollHander = this.scrollHander.bind(this);
 	}
 	componentWillMount(){
 		fetch(`https://cnodejs.org/api/v1/topics?tab=${this.state.tab}&page=${this.state.curPage}`)
@@ -68,15 +69,19 @@ class Home extends Component{
 			});
 	}
 
-	componentDidMount(){
-		window.addEventListener("scroll",()=>{
-			const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-			let backToTop = false;
-			backToTop = scrollTop > 700 ? true : false;
-			this.setState({
-				backToTop:backToTop
-			});
+	scrollHander(){
+		const scrollTop = document.documentElement.scrollTop;
+		let backToTop = false;
+		backToTop = scrollTop > 700 ? true : false;
+		this.setState({
+			backToTop:backToTop
 		});
+	}
+	componentDidMount(){
+		window.addEventListener("scroll",this.scrollHander);
+	}
+	componentWillUnmount(){
+		window.removeEventListener("scroll",this.scrollHander);
 	}
 	componentWillReceiveProps(nextProps){
 		window.scroll(0,0);

@@ -11,6 +11,7 @@ class TopicDetail extends Component{
 			topicId:props.match.params.id,
 			topicDetail:{}
 		};
+		this.scrollHander = this.scrollHander.bind(this);
 	}
 	componentWillMount(){
 		fetch(`https://cnodejs.org/api/v1/topic/${this.state.topicId}`)
@@ -22,15 +23,19 @@ class TopicDetail extends Component{
 				});
 			});
 	}
-	componentDidMount(){
-		window.addEventListener("scroll",()=>{
-			const scrollTop = document.documentElement.scrollTop;
-			let backToTop = false;
-			backToTop = scrollTop > 700 ? true : false;
-			this.setState({
-				backToTop:backToTop
-			});
+	scrollHander(){
+		const scrollTop = document.documentElement.scrollTop;
+		let backToTop = false;
+		backToTop = scrollTop > 700 ? true : false;
+		this.setState({
+			backToTop:backToTop
 		});
+	}
+	componentDidMount(){
+		window.addEventListener("scroll",this.scrollHander);
+	}
+	componentWillUnmount(){
+		window.removeEventListener("scroll",this.scrollHander);
 	}
 	render(){	
 		return (
