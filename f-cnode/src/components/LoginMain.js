@@ -6,7 +6,7 @@ class LoginMain extends Component{
 	render(){
 		return (
 			<div id="main">
-				<LoginContent />
+				<LoginContent onLogin={this.props.onLogin}/>
 				<LoginSidBar />
 			</div>
 		);

@@ -9,11 +9,18 @@ import QRCode from './QRCode';
 import LoginPanel from './LoginPanel';
 
 class HomeSideBar extends Component{
+	constructor(){
+		super();
+		const isLogin = localStorage.getItem("isLogin") === "true" ? true : false;
+		this.state={
+			isLogin
+		};
+	}
 	render(){
 		return (
 			<div className="sidebar">
-				<LoginPanel />
-				<PostTopic />
+				{this.state.isLogin ? <PersonalInfo /> : <LoginPanel />}
+				{this.state.isLogin ? <PostTopic /> : ""}
 				<Advertisement />
 				<NoReplyTopic />
 				<IntegerRanking />

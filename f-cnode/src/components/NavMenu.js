@@ -4,28 +4,68 @@ import NavMenuItem from './NavMenuItem';
 class NavMenu extends Component{
 	constructor(){
 		super();
-		this.state = {
-			menu:[
+		const isLogin = localStorage.getItem("isLogin") === "true" ? true : false;
+		const loginMenu = [
 				{
-					title:"首页"
+					title:"首页",
+					url:"/"
 				},
 				{
-					title:"新手入门"
+					title:"未读消息",
+					url:"/"
 				},
 				{
-					title:"API"
+					title:"新手入门",
+					url:"/"
 				},
 				{
-					title:"关于"
+					title:"API",
+					url:"/"
 				},
 				{
-					title:"注册"
+					title:"关于",
+					url:"/"
 				},
 				{
-					title:"登录"
+					title:"设置",
+					url:"/"
 				},
+				{
+					title:"退出",
+					url:"/logout"
+				}
 
-			]
+			];
+
+		const logoutMenu = [
+				{
+					title:"首页",
+					url:"/"
+				},
+				{
+					title:"新手入门",
+					url:"/"
+				},
+				{
+					title:"API",
+					url:"/"
+				},
+				{
+					title:"关于",
+					url:"/"
+				},
+				{
+					title:"注册",
+					url:"/"
+				},
+				{
+					title:"登录",
+					url:"/"
+				}
+			];
+		const showMenu = isLogin ? loginMenu : logoutMenu;
+		this.state = {
+			menu:showMenu
 		};
 	}
 	render(){
