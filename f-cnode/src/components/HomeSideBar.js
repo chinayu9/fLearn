@@ -6,12 +6,13 @@ import NoReplyTopic from './NoReplyTopic';
 import IntegerRanking from './IntegerRanking';
 import Community from './Community';
 import QRCode from './QRCode';
+import LoginPanel from './LoginPanel';
 
 class HomeSideBar extends Component{
 	render(){
 		return (
 			<div className="sidebar">
-				<PersonalInfo />
+				<LoginPanel />
 				<PostTopic />
 				<Advertisement />
 				<NoReplyTopic />

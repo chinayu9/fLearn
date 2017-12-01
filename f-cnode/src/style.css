@@ -38,6 +38,9 @@ pre{
 	word-wrap: break-word;
 	word-break: break-all;
 }
+p{
+	margin: 0 0 10px;
+}
 #back-to-top{
 	width: 24px;
 	color: gray;
@@ -309,6 +312,24 @@ pre{
 	border-radius: 0 0 3px 3px;
 	background-color: #fff;
 }
+.span-info{
+	display: inline-block;
+	padding: 3px 10px;
+	border:none;
+	font-size: 14px;
+	transition: all .2s ease-in-out;
+	cursor: pointer;
+	letter-spacing: 2px;
+	box-shadow: none;
+	border-radius: 3px;
+	line-height: 2em;
+	vertical-align: middle;
+	color: #fff;
+	background: #5bc0de;
+}
+.span-info:hover{
+	background: #2f96b4;
+}
 .user-header{
 	display: flex;
 	align-items: center;
@@ -354,6 +375,9 @@ pre{
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
+}
+.span-success:hover{
+	background: #6ba44e;
 }
 .span-success a{
 	width: 100%;
