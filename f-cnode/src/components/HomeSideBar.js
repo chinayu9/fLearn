@@ -13,13 +13,31 @@ class HomeSideBar extends Component{
 		super();
 		const isLogin = localStorage.getItem("isLogin") === "true" ? true : false;
 		this.state={
-			isLogin
+			isLogin,
+			loginname:"",
+			avatarUrl:"",
+			score:0
 		};
+	}
+	componentWillMount(){
+		if (!this.state.isLogin) {return;}
+		const loginname = localStorage.getItem("loginname");
+		fetch(`https://cnodejs.org/api/v1/user/${loginname}`)
+			.then(res=>res.json())
+			.then(res=>{
+				if (res.success) {
+					this.setState({
+						loginname:res.data.loginname,
+						avatarUrl:res.data.avatar_url,
+						score:res.data.score
+					});
+				}
+			});
 	}
 	render(){
 		return (
 			<div className="sidebar">
-				{this.state.isLogin ? <PersonalInfo /> : <LoginPanel />}
+				{this.state.isLogin ? <PersonalInfo {...this.state}/> : <LoginPanel />}
 				{this.state.isLogin ? <PostTopic /> : ""}
 				<Advertisement />
 				<NoReplyTopic />

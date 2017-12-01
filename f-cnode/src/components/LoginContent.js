@@ -4,7 +4,7 @@ class LoginContent extends Component{
 	constructor(){
 		super();
 		this.state={
-			accesstoken:""
+			accesstoken:"faa9f77b-1a92-43a6-84d4-f407deeab24e"
 		};
 	}
 	onChangeHandler(e){
