@@ -37,6 +37,19 @@ class TopicDetail extends Component{
 	componentWillUnmount(){
 		window.removeEventListener("scroll",this.scrollHander);
 	}
+	componentWillReceiveProps(nextProps){
+		window.scroll(0,0);
+		const topicId = nextProps.match.params.id;
+		fetch(`https://cnodejs.org/api/v1/topic/${topicId}`)
+			.then(res=>res.json())
+			.then(res=>{
+				console.log(res);
+				this.setState({
+					topicDetail:res.data,
+					topicId
+				});
+			});
+	}
 	render(){	
 		return (
 			<div>

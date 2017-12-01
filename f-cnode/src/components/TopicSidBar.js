@@ -10,7 +10,8 @@ class TopicSidBar extends Component{
 		this.state={
 			loginname:"",
 			avatarUrl:"",
-			score:0
+			score:0,
+			otherTopics:[]
 		};
 	}
 	componentWillReceiveProps(nextProps){
@@ -22,7 +23,8 @@ class TopicSidBar extends Component{
 					this.setState({
 						loginname:res.data.loginname,
 						avatarUrl:res.data.avatar_url,
-						score:res.data.score
+						score:res.data.score,
+						otherTopics:res.data.recent_topics
 					});
 				}
 			})
@@ -33,7 +35,7 @@ class TopicSidBar extends Component{
 			<div className="sidebar">
 				<PersonalInfo {...this.state}/>
 				<Advertisement />
-				<OtherTopic />
+				<OtherTopic otherTopics={this.state.otherTopics}/>
 				<NoReplyTopic />
 			</div>
 		);

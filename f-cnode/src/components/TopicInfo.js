@@ -52,7 +52,7 @@ class TopicInfo extends Component{
 						<span>&nbsp;发布于&nbsp;{dateFormat(topicDetail.create_at)}&nbsp;</span>
 						<span>&nbsp;作者&nbsp;{topicDetail.author ? topicDetail.author.loginname : ""}&nbsp;</span>
 						<span>&nbsp;{topicDetail.visit_count}&nbsp;次浏览&nbsp;</span>
-						<span>&nbsp;最后一次编辑是&nbsp;{dateFormat(topicDetail.last_reply_at)}&nbsp;</span>
+						<span>&nbsp;最后一次回复是&nbsp;{dateFormat(topicDetail.last_reply_at)}&nbsp;</span>
 						<span>&nbsp;来自&nbsp;{this.getTabText(topicDetail.tab)}&nbsp;</span>
 						<input className="collet-btn" type="submit" value="收藏" />
 					</div>
