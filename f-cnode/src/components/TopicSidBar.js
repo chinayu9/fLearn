@@ -8,15 +8,14 @@ class TopicSidBar extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-			loginname:"",
+			loginname:props.loginname,
 			avatarUrl:"",
 			score:0,
 			otherTopics:[]
 		};
 	}
-	componentWillReceiveProps(nextProps){
-		if (this.state.loginname) {return;}
-		fetch(`https://cnodejs.org/api/v1/user/${nextProps.loginname}`)
+	componentWillMount(nextProps){
+		fetch(`https://cnodejs.org/api/v1/user/${this.state.loginname}`)
 			.then(res=>res.json())
 			.then(res=>{
 				if (res.success) {

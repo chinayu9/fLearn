@@ -7,7 +7,7 @@ class TopicMain extends Component{
 		return (
 			<div id="main">
 				<TopicContent topicDetail={this.props.topicDetail}/>
-				<TopicSidBar loginname={this.props.topicDetail.author ? this.props.topicDetail.author.loginname : ""}/>
+				<TopicSidBar loginname={this.props.topicDetail.author.loginname}/>
 			</div>
 		);
 		

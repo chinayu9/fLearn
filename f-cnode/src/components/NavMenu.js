@@ -60,7 +60,7 @@ class NavMenu extends Component{
 				},
 				{
 					title:"登录",
-					url:"/"
+					url:"/login"
 				}
 			];
 		const showMenu = isLogin ? loginMenu : logoutMenu;

@@ -74,6 +74,7 @@ class Home extends Component{
 		const scrollTop = document.documentElement.scrollTop;
 		let backToTop = false;
 		backToTop = scrollTop > 700 ? true : false;
+		if (backToTop === this.state.backToTop) {return;}
 		this.setState({
 			backToTop:backToTop
 		});

@@ -494,6 +494,14 @@ input[type=text]{
 .collet-btn:hover{
 	background: #6ba44e;
 }
+.span-common{
+	background: #e5e5e5;
+	color: #000;
+}
+.span-common:hover{
+	background: #909090;
+	color: #fff;
+}
 .topic-inner{
 	padding: 10px;
 	border-top: 1px solid #e5e5e5;

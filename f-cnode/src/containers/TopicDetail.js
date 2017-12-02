@@ -6,18 +6,19 @@ import BackToTop from '../components/BackToTop';
 class TopicDetail extends Component{
 	constructor(props){
 		super(props);
+		const accesstoken = localStorage.getItem("accesstoken");
 		this.state={
+			accesstoken,
 			backToTop:false,
 			topicId:props.match.params.id,
-			topicDetail:{}
+			topicDetail:null
 		};
 		this.scrollHander = this.scrollHander.bind(this);
 	}
 	componentWillMount(){
-		fetch(`https://cnodejs.org/api/v1/topic/${this.state.topicId}`)
+		fetch(`https://cnodejs.org/api/v1/topic/${this.state.topicId}?accesstoken=${this.state.accesstoken}`)
 			.then(res=>res.json())
 			.then(res=>{
-				console.log(res);
 				this.setState({
 					topicDetail:res.data
 				});
@@ -27,6 +28,7 @@ class TopicDetail extends Component{
 		const scrollTop = document.documentElement.scrollTop;
 		let backToTop = false;
 		backToTop = scrollTop > 700 ? true : false;
+		if (backToTop === this.state.backToTop) {return;}
 		this.setState({
 			backToTop:backToTop
 		});
@@ -40,7 +42,7 @@ class TopicDetail extends Component{
 	componentWillReceiveProps(nextProps){
 		window.scroll(0,0);
 		const topicId = nextProps.match.params.id;
-		fetch(`https://cnodejs.org/api/v1/topic/${topicId}`)
+		fetch(`https://cnodejs.org/api/v1/topic/${topicId}?accesstoken=${this.state.accesstoken}`)
 			.then(res=>res.json())
 			.then(res=>{
 				console.log(res);
@@ -55,7 +57,7 @@ class TopicDetail extends Component{
 			<div>
 				{this.state.backToTop ? <BackToTop /> : ""}
 				<Header />
-				<TopicMain topicDetail={this.state.topicDetail}/>
+				{this.state.topicDetail ? <TopicMain topicDetail={this.state.topicDetail} /> : ""} 
 			</div>
 		);
 	}
