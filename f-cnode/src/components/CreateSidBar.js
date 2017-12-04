@@ -1,9 +1,14 @@
 import React,{ Component } from 'react';
+import MarkDownSyntax from './MarkDownSyntax';
+import TopicPostGuide from './TopicPostGuide';
 
 class CreateSidBar extends Component{
 	render(){
 		return (
-			<div className="sidebar">sidebar</div>
+			<div className="sidebar">
+				<MarkDownSyntax />
+				<TopicPostGuide />
+			</div>
 		);
 	}
 }

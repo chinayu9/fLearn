@@ -71,6 +71,9 @@ input[type=text]{
 	bottom: 100px;
 	right: 0;
 }
+.panel .p-inner li{
+	line-height: 2em;
+}
 /***********header********************/
 #header{
 	width: 100%;
