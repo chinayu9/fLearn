@@ -6,9 +6,7 @@ class PostTopic extends Component{
 		return (
 			<div className="panel">
 				<div className="p-inner">
-					
-					<span className="span-success"><Link to="/topic/create">发布话题</Link></span>
-					
+					<Link to="/topic/create"><span className="span-success">发布话题</span></Link>
 				</div>
 			</div>
 		);
