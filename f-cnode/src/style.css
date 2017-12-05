@@ -58,6 +58,7 @@ input[type=text]{
 	color: #555;
 	border-radius: 4px;
 }
+
 #back-to-top{
 	width: 24px;
 	color: gray;
@@ -384,6 +385,7 @@ input[type=text]{
 	line-height: 2em;
 }
 
+.span-primary,
 .span-success,
 .login-btn{
 	border-radius: 3px;
@@ -706,4 +708,81 @@ div pre.prettyprint{
 	font-size: 13px;
 	color: #333;
 	line-height: 2em;
+}
+
+
+/*************create-topic************/
+.tab-select-span{
+	font-size: 14px;
+	line-height: 2em;
+}
+select,
+textarea{
+	width:220px;
+	border:1px solid #ccc;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	display:inline-block;
+	padding:4px 6px;
+	margin-bottom: 10px;
+	color: #555;
+	vertical-align: middle;
+	border-radius: 4px
+}
+#tab-select-value{
+	margin-left: 10px;
+	margin-right: 7px;
+}
+#topic-title{
+	width: 98%;
+	resize: none;
+	height: 30px;
+	line-height: 20px;
+	display: inline-block;
+	margin-bottom: 1em;
+	outline: none;
+}
+
+#topic-content-value{
+	width: 98%;
+	height: 480px;
+	resize: none;
+	outline: none;
+	color: #333;
+}
+.submit-btn{
+	border-radius: 3px;
+	background: #08c;
+	margin-top: 20px;
+}
+.submit-btn:hover{
+	background: #0055cc;
+}
+.alert{
+	border-radius: 0;
+	padding: 8px 35px 8px 14px;
+	margin-bottom: 20px;
+	border:1px solid #fbeed5;
+}
+
+.alert-error{
+	color: #b94a48;
+	background: #f2dede;
+	border-color: #eed3d7;
+}
+.alert strong{
+	line-height: 30px;
+	display: inline-block;
+	height: 30px;
+}
+.alert .close{
+	float:right;
+	font-size: 20px;
+	opacity: .2;
+	position: relative;
+	top:-2px;
+	right: -21px;
+	line-height: 20px;
+	cursor: pointer;
 }

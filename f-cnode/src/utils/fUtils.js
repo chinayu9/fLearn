@@ -21,10 +21,8 @@ export const dateFormat = (dateStr)=>{
 		return Math.floor(diff / oneHour) + " 小时前";
 	}else if (Math.floor(diff / oneMinute) > 0) {
 		return Math.floor(diff / oneMinute) + " 分钟前";
-	}else if (Math.floor(diff / oneSeconds) > 0) {
-		return "几秒前";
 	}else{
-		return "百年前"
+		return "几秒前";
 	}
 	
 };
