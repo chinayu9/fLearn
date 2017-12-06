@@ -3,6 +3,24 @@ import { dateFormat } from '../utils/fUtils';
 
 
 class TopicReplyItem extends Component{
+	onLikeClickHandler(){
+		const accesstoken = localStorage.getItem("accesstoken");
+		fetch(`https://cnodejs.org/api/v1/reply/${this.props.reply.id}/ups`,{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({accesstoken})
+		}).then(res=>res.json())
+		.then(res=>{
+			console.log(res);
+			if (res.success) {
+				this.props.onLikeClick();
+			}else{
+				alert(`呵呵，${res.error_msg}`);
+			}
+		});
+	}
 	render(){
 		const { reply,index } = this.props;
 		return (
@@ -14,7 +32,7 @@ class TopicReplyItem extends Component{
 						<a className="reply-time" href="#">&nbsp;{index}楼•{dateFormat(reply.create_at)}</a>
 					</div>
 					<div className="user-action">
-						<span>
+						<span onClick={this.onLikeClickHandler.bind(this)}>
 							<i className={reply.ups.length > 0 ? "fa up-btn fa-thumbs-o-up" : "fa up-btn fa-thumbs-o-up invisible"} title="喜欢"></i>
 							<span className="up-count">&nbsp;{reply.ups.length > 0 ? reply.ups.length : ""}&nbsp;</span>
 						</span>

@@ -60,12 +60,25 @@ class TopicDetail extends Component{
 				});
 			});
 	}
+	onLikeClickHandler(){
+		fetch(`https://cnodejs.org/api/v1/topic/${this.state.topicId}?accesstoken=${this.state.accesstoken}`)
+			.then(res=>res.json())
+			.then(res=>{
+				this.setState({
+					topicDetail:res.data
+				});
+			});
+	}
 	render(){	
 		return (
 			<div>
 				{this.state.backToTop ? <BackToTop /> : ""}
 				<Header />
-				{this.state.topicDetail ? <TopicMain topicDetail={this.state.topicDetail} onReplyClick={this.onReplyClickHandler.bind(this)}/> : ""} 
+				{this.state.topicDetail ? 
+					<TopicMain 
+						topicDetail={this.state.topicDetail} 
+						onReplyClick={this.onReplyClickHandler.bind(this)}
+						onLikeClick={this.onLikeClickHandler.bind(this)}/> : ""} 
 			</div>
 		);
 	}

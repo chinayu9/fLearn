@@ -4,9 +4,13 @@ import TopicSidBar from './TopicSidBar';
 
 class TopicMain extends Component{
 	render(){
+		console.log(this.props.topicDetail);
 		return (
 			<div id="main">
-				<TopicContent topicDetail={this.props.topicDetail} onReplyClick={this.props.onReplyClick.bind(this)}/>
+				<TopicContent 
+					topicDetail={this.props.topicDetail} 
+					onReplyClick={this.props.onReplyClick.bind(this)} 
+					onLikeClick={this.props.onLikeClick.bind(this)}/>
 				<TopicSidBar loginname={this.props.topicDetail.author.loginname}/>
 			</div>
 		);
