@@ -6,7 +6,7 @@ class TopicMain extends Component{
 	render(){
 		return (
 			<div id="main">
-				<TopicContent topicDetail={this.props.topicDetail}/>
+				<TopicContent topicDetail={this.props.topicDetail} onReplyClick={this.props.onReplyClick.bind(this)}/>
 				<TopicSidBar loginname={this.props.topicDetail.author.loginname}/>
 			</div>
 		);

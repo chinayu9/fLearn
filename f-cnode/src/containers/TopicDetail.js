@@ -47,8 +47,16 @@ class TopicDetail extends Component{
 			.then(res=>{
 				console.log(res);
 				this.setState({
-					topicDetail:res.data,
-					topicId
+					topicDetail:res.data
+				});
+			});
+	}
+	onReplyClickHandler(){
+		fetch(`https://cnodejs.org/api/v1/topic/${this.state.topicId}?accesstoken=${this.state.accesstoken}`)
+			.then(res=>res.json())
+			.then(res=>{
+				this.setState({
+					topicDetail:res.data
 				});
 			});
 	}
@@ -57,7 +65,7 @@ class TopicDetail extends Component{
 			<div>
 				{this.state.backToTop ? <BackToTop /> : ""}
 				<Header />
-				{this.state.topicDetail ? <TopicMain topicDetail={this.state.topicDetail} /> : ""} 
+				{this.state.topicDetail ? <TopicMain topicDetail={this.state.topicDetail} onReplyClick={this.onReplyClickHandler.bind(this)}/> : ""} 
 			</div>
 		);
 	}

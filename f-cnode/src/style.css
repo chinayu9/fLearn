@@ -744,7 +744,8 @@ textarea{
 	outline: none;
 }
 
-#topic-content-value{
+#topic-content-value,
+#reply-content-value{
 	width: 98%;
 	height: 480px;
 	resize: none;
@@ -785,4 +786,8 @@ textarea{
 	right: -21px;
 	line-height: 20px;
 	cursor: pointer;
+}
+
+#reply-content-value{
+	height: 280px;
 }
