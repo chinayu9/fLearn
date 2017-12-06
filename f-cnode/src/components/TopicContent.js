@@ -9,7 +9,11 @@ class TopicContent extends Component{
 			<div className="ct-box">
 				<TopicInfo topicDetail={this.props.topicDetail}/>
 				{this.props.topicDetail.replies && this.props.topicDetail.replies.length > 0 ? 
-					<TopicReply replies={this.props.topicDetail.replies} onLikeClick={this.props.onLikeClick.bind(this)}/> : ""}
+					<TopicReply 
+						onReplyClick={this.props.onReplyClick.bind(this)}
+						topicId={this.props.topicDetail.id}
+						replies={this.props.topicDetail.replies} 
+						onLikeClick={this.props.onLikeClick.bind(this)}/> : ""}
 				<TopicReplyCreate topicId={this.props.topicDetail.id} onReplyClick={this.props.onReplyClick.bind(this)}/>
 			</div>
 		);

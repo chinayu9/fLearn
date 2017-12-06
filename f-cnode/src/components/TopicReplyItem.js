@@ -3,6 +3,15 @@ import { dateFormat } from '../utils/fUtils';
 
 
 class TopicReplyItem extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			clickReply:false,
+			replyContent:"",
+			replyId:props.reply.id,
+			topicID:props.topicId
+		};
+	}
 	onLikeClickHandler(){
 		const accesstoken = localStorage.getItem("accesstoken");
 		fetch(`https://cnodejs.org/api/v1/reply/${this.props.reply.id}/ups`,{
@@ -18,6 +27,44 @@ class TopicReplyItem extends Component{
 				this.props.onLikeClick();
 			}else{
 				alert(`呵呵，${res.error_msg}`);
+			}
+		});
+	}
+	onReplyBtnClickHandler(){
+		this.setState({
+			clickReply:!this.state.clickReply,
+			replyContent:"@" + this.props.reply.author.loginname + ' '
+		});
+	}
+	onReplyContentChangeHandler(e){
+		this.setState({
+			replyContent:e.target.value
+		});
+	}
+	onReplyClickHandler(){
+		const accesstoken = localStorage.getItem("accesstoken");
+		const data = {
+			accesstoken,
+			content:this.state.replyContent,
+			reply_id:this.state.replyId
+		};
+		fetch(`https://cnodejs.org/api/v1/topic/${this.state.topicID}/replies`,{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify(data)
+		}).then(res=>res.json())
+		.then(res=>{
+			if (res.success) {
+				this.props.onReplyClick();
+				this.setState({
+					replyContent:"",
+					clickReply:false
+				});
+			}else{
+				alert(res.error_msg);
+				return;
 			}
 		});
 	}
@@ -38,10 +85,15 @@ class TopicReplyItem extends Component{
 						</span>
 
 						
-						<span><i className="fa fa-reply reply2-btn" title="回复"></i></span>
+						<span onClick={this.onReplyBtnClickHandler.bind(this)}><i className="fa fa-reply reply2-btn" title="回复"></i></span>
 					</div>
 				</div>
 				<div className="reply-content" dangerouslySetInnerHTML={{__html:reply.content}}></div>
+				<div className="reply-to" style={{height:this.state.clickReply?"266px":"0px"}}>
+					<textarea className="reply-item-content" value={this.state.replyContent} onChange={this.onReplyContentChangeHandler.bind(this)}>
+					</textarea>
+					<div><span className="span-primary submit-btn" onClick={this.onReplyClickHandler.bind(this)}>回复</span></div>
+				</div>
 			</div>
 		);
 

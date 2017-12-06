@@ -31,6 +31,9 @@ class TopicReplyCreate extends Component{
 			console.log(res);
 			if (res.success) {
 				this.props.onReplyClick();
+				this.setState({
+					replyContent:""
+				});
 			}
 		});
 	}

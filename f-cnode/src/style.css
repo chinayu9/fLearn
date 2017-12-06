@@ -645,6 +645,11 @@ div pre.prettyprint{
 	background-color: #f7f7f7;
 	tab-size:4;
 }
+.reply-to{
+	transition: all .2s ease-in-out;
+	height:0;
+	overflow: hidden;
+}
 
 
 
@@ -745,12 +750,16 @@ textarea{
 }
 
 #topic-content-value,
-#reply-content-value{
+#reply-content-value,
+.reply-item-content{
 	width: 98%;
 	height: 480px;
 	resize: none;
 	outline: none;
 	color: #333;
+}
+.reply-item-content{
+	height: 200px;
 }
 .submit-btn{
 	border-radius: 3px;
