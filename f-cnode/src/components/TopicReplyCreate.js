@@ -28,12 +28,13 @@ class TopicReplyCreate extends Component{
 			body:JSON.stringify(data)
 		}).then(res=>res.json())
 		.then(res=>{
-			console.log(res);
 			if (res.success) {
 				this.props.onReplyClick();
 				this.setState({
 					replyContent:""
 				});
+			}else{
+				alert(res.error_msg);
 			}
 		});
 	}

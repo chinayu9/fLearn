@@ -800,3 +800,14 @@ textarea{
 #reply-content-value{
 	height: 280px;
 }
+
+
+/**********messages*********/
+.cell[message_id] a{
+	max-width: 460px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	display: inline-block;
+	vertical-align: middle;
+	color: #08c;
+}

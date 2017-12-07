@@ -5,6 +5,7 @@ import TopicDetail from './TopicDetail';
 import LoginPage from './LoginPage';
 import Logout from '../components/Logout';
 import CreateTopic from './CreateTopic';
+import Messages from './Messages';
 
 class App extends Component{
 	render(){
@@ -18,6 +19,7 @@ class App extends Component{
 						<Route path="/topic/create" component={CreateTopic} />
 						<Route path="/topic/:id" component={TopicDetail} />
 					</Switch>
+					<Route path="/my/messages" component={Messages} />
 				</div>
 			</Router>
 		);

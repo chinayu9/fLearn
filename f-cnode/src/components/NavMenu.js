@@ -12,7 +12,7 @@ class NavMenu extends Component{
 				},
 				{
 					title:"未读消息",
-					url:"/"
+					url:"/my/messages"
 				},
 				{
 					title:"新手入门",
