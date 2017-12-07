@@ -177,7 +177,8 @@ input[type=text]{
 	display: flex;
 	flex-direction: column;
 }
-.topic-list-item{
+.topic-list-item,
+.user-cell{
 	display: flex;
 	padding: 10px;
 	border-top: 1px solid #f0f0f0;
@@ -229,6 +230,11 @@ input[type=text]{
 	overflow: hidden;
 	width: 70%;
 }
+.user-cell .topic-title{
+	margin-left: 20px;
+	
+}
+
 .topic-title a{
 	color: #333;
 	font-size: 16px;
@@ -238,6 +244,15 @@ input[type=text]{
 }
 .topic-title a:visited{
 	color: #888;
+}
+.user-cell .topic-title a{
+	color: #08c;
+}
+.user-cell .topic-title a:hover{
+	color: #005580;
+}
+.user-cell .topic-title a:visited{
+	color:  #08c;
 }
 .reply-box{
 	flex-grow: 1;
@@ -324,6 +339,10 @@ input[type=text]{
 }
 .col-fade{
 	color: #444;
+	font-size: 14px;
+}
+.userInfo .col-fade{
+	color:#ababab;
 }
 .col-fade a{
 	color: #666;
@@ -354,6 +373,9 @@ input[type=text]{
 .user-header{
 	display: flex;
 	align-items: center;
+}
+.userInfo .user-header{
+	align-items: flex-start;
 }
 .user-avatar{
 	
@@ -571,7 +593,8 @@ input[type=text]{
 
 /****************topic reply****************/
 
-.cell{
+.cell,
+.user-cell{
 	background: #fff;
 	border-top: 1px solid #f0f0f0;
 	position: relative;
@@ -587,6 +610,14 @@ input[type=text]{
 .user-avatar img{
 	width: 30px;
 	height: 30px;
+	border-radius: 3px;
+}
+.user-big-avatar{
+	margin-right: 10px;
+}
+.user-big-avatar img{
+	width: 40px;
+	height: 40px;
 	border-radius: 3px;
 }
 .user-info{

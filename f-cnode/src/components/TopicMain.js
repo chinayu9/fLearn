@@ -4,7 +4,6 @@ import TopicSidBar from './TopicSidBar';
 
 class TopicMain extends Component{
 	render(){
-		console.log(this.props.topicDetail);
 		return (
 			<div id="main">
 				<TopicContent 

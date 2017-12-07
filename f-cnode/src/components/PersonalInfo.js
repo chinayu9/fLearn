@@ -11,7 +11,7 @@ class PersonalInfo extends Component{
 				<div className="p-inner">
 					<div className="user-card">
 						<div className="user-header">
-							<a className="user-avatar" href=""><img src={avatarUrl} /></a>
+							<a className="user-avatar" href={`/user/${loginname}`}><img src={avatarUrl} /></a>
 							<span className="user-name">{loginname}</span>
 						</div>
 						<div className="user-integration">积分：{score}</div>

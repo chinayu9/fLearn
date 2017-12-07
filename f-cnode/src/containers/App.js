@@ -6,6 +6,7 @@ import LoginPage from './LoginPage';
 import Logout from '../components/Logout';
 import CreateTopic from './CreateTopic';
 import Messages from './Messages';
+import User from './User';
 
 class App extends Component{
 	render(){
@@ -20,6 +21,7 @@ class App extends Component{
 						<Route path="/topic/:id" component={TopicDetail} />
 					</Switch>
 					<Route path="/my/messages" component={Messages} />
+					<Route path="/user/:id" component={User} />
 				</div>
 			</Router>
 		);
