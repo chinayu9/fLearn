@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class PaginationItem extends Component{
 	render(){
-		const { curPage,maxPage,text,tab } = this.props;
+		const { curPage,maxPage,text,tab,toUrl } = this.props;
 		let pageClassName = "";
 		let disabled = false;
 		let toPage = 1;
@@ -26,7 +26,7 @@ class PaginationItem extends Component{
 		return (
 			<li className={pageClassName} >
 				{
-					disabled ? <a>{text}</a> : <Link to={`/?tab=${tab}&page=${toPage}`}>{text}</Link>
+					disabled ? <a>{text}</a> : <Link to={`${toUrl}?tab=${tab}&page=${toPage}`}>{text}</Link>
 				}
 			</li>
 		);

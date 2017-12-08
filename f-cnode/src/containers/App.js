@@ -7,6 +7,7 @@ import Logout from '../components/Logout';
 import CreateTopic from './CreateTopic';
 import Messages from './Messages';
 import User from './User';
+import Collections from './Collections';
 
 class App extends Component{
 	render(){
@@ -21,7 +22,10 @@ class App extends Component{
 						<Route path="/topic/:id" component={TopicDetail} />
 					</Switch>
 					<Route path="/my/messages" component={Messages} />
-					<Route path="/user/:id" component={User} />
+					<Switch>
+						<Route path="/user/:id/collections" component={Collections} />
+						<Route path="/user/:id" component={User} />
+					</Switch>
 				</div>
 			</Router>
 		);

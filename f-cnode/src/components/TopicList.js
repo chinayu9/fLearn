@@ -3,7 +3,7 @@ import TopicListItem from './TopicListItem';
 class TopicList extends Component{
 	
 	render(){
-		const { topicList,tab } = this.props;
+		const { topicList } = this.props;
 		return (
 			<div className="topic-list">
 				<ul>
@@ -12,7 +12,7 @@ class TopicList extends Component{
 							<TopicListItem 
 								key={topic.id} 
 								topic={topic}
-								tab={tab} />)
+								 />)
 					}
 				</ul>
 			</div>

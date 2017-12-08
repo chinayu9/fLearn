@@ -40,7 +40,11 @@ class User extends Component{
 		return (
 			<div>
 				<Header />
-				{this.state.user ? <UserMain user={this.state.user} collectNumber={this.state.collectNumber}/> : ""}
+				{this.state.user ? 
+					<UserMain 
+						user={this.state.user} 
+						collectNumber={this.state.collectNumber}
+						loginname={this.state.loginname}/> : ""}
 			</div>
 		);
 	}

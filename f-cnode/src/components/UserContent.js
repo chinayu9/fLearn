@@ -7,7 +7,6 @@ class UserContent extends Component{
 
 	render(){
 		const { user,collectNumber } = this.props;
-		console.log(user);
 		return (
 			<div className="ct-box">
 				<div className="panel">
@@ -25,7 +24,7 @@ class UserContent extends Component{
 							<span className="user-name">{user.loginname}</span>
 						</div>
 						<div className="user-integration">积分：{user.score}</div>
-						<p><Link to="">{collectNumber}个收藏话题</Link></p>
+						<p><Link to={`/user/${user.loginname}/collections`}>{collectNumber}个收藏话题</Link></p>
 						<p className="col-fade">注册时间 {dateFormat(user.create_at)}</p>
 					</div>	
 				</div>

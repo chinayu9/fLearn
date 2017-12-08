@@ -6,7 +6,7 @@ import Community from './Community';
 import QRCode from './QRCode';
 import LoginPanel from './LoginPanel';
 
-class MessagesSideBar extends Component{
+class CollectionsSideBar extends Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -40,4 +40,4 @@ class MessagesSideBar extends Component{
 	}
 }
 
-export default MessagesSideBar;
+export default CollectionsSideBar;

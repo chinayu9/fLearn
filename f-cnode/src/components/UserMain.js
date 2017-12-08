@@ -8,7 +8,7 @@ class UserMain extends Component{
 		return (
 			<div id="main">
 				<UserContent user={this.props.user} collectNumber={this.props.collectNumber}/>
-				<UserSideBar />
+				<UserSideBar loginname={this.props.loginname}/>
 			</div>
 		);
 		

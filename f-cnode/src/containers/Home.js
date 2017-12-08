@@ -8,7 +8,7 @@ class Home extends Component{
 		super(props);
 		let tab = "all";
 		let curPage = 1;
-		const maxPage = 30;
+		const maxPage = 60;
 		const { search } = props.location;
 		if (search) {
 			tab = getUrlParam(search,"tab");
@@ -17,6 +17,7 @@ class Home extends Component{
 		let pagText = this.updatePagText(maxPage,curPage);
 		this.state={
 			backToTop:false,
+			toUrl:"/",
 			tab,
 			curPage,
 			maxPage,
@@ -88,14 +89,13 @@ class Home extends Component{
 	componentWillReceiveProps(nextProps){
 		window.scroll(0,0);
 		let tab = "all";
-		let curPage = 1;
-		const maxPage = 30;
 		const { search } = nextProps.location;
+		let curPage = 1;
 		if (search) {
 			tab = getUrlParam(search,"tab");
 			curPage = +( getUrlParam(search,"page") || 1 );
 		}
-		let pagText = this.updatePagText(maxPage,curPage);
+		let pagText = this.updatePagText(this.state.maxPage,curPage);
 		fetch(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${curPage}`)
 			.then(res=>res.json())
 			.then(res=>{
@@ -104,7 +104,6 @@ class Home extends Component{
 						topicList:res.data,
 						tab,
 						curPage,
-						maxPage,
 						pagText
 					});
 				}
@@ -114,7 +113,7 @@ class Home extends Component{
 		let pagText = [];
 		//maxPage<=5  
 		if (maxPage <= 5) {
-			let pagText = ["»"];
+			pagText = ["»"];
 			let tmpMaxPage = maxPage;
 			while(tmpMaxPage > 0){
 				pagText.push(tmpMaxPage);

@@ -3,15 +3,16 @@ import TopicList from './TopicList';
 import Pagination from './Pagination';
 class HomeContentBody extends Component{
 	render(){
-		const { topicList,pagText,curPage,maxPage,tab } = this.props;
+		const { topicList,pagText,curPage,maxPage,tab,toUrl } = this.props;
 		return (
 			<div className="ct-bd">
-				<TopicList topicList={topicList} tab={tab}/>
+				<TopicList topicList={topicList} />
 				<Pagination 
 					pagText={pagText}
 					curPage={curPage}
 					maxPage={maxPage}
-					tab={tab}/>
+					tab={tab}
+					toUrl={toUrl}/>
 			</div>
 		);
 		
