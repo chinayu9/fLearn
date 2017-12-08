@@ -65,14 +65,32 @@ class NavMenu extends Component{
 			];
 		const showMenu = isLogin ? loginMenu : logoutMenu;
 		this.state = {
-			menu:showMenu
+			menu:showMenu,
+			messageCount:0
 		};
+	}
+	componentWillMount(){
+		const accesstoken = localStorage.getItem("accesstoken");
+		if (!accesstoken) {
+			return;
+		}
+		fetch(`https://cnodejs.org/api/v1/message/count?accesstoken=${accesstoken}`)
+			.then(res=>res.json())
+			.then(res=>{
+				if (res.success) {
+					this.setState({
+						messageCount:res.data
+					});
+				}else{
+					alert(res.error_msg);
+				}
+			});
 	}
 	render(){
 		return (
 			<ul className="nav-menu">
 				{
-					this.state.menu.map((item,index)=><NavMenuItem menuItem={item} key={index} />)
+					this.state.menu.map((item,index)=><NavMenuItem menuItem={item} key={index} messageCount={this.state.messageCount}/>)
 				}
 			</ul>
 		);

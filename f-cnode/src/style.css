@@ -119,7 +119,9 @@ input[type=text]{
 .nav-menu{
 	display: flex;
 }
-
+.nav-menu-item{
+	position: relative;
+}
 .nav-menu-item a{
 	color: #ccc;
 	padding: 10px 15px;
@@ -128,6 +130,14 @@ input[type=text]{
 
 .nav-menu-item a:hover{
 	color: #fff;
+}
+.message-tips{
+	color: #80bd01;
+	font-size: 14px;
+	font-weight: bolder;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 /*************main******************/
 

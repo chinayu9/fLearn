@@ -10,25 +10,40 @@ class MessagesContent extends Component{
 			hasNotReadMessages:[]
 		}
 	}
-	componentWillMount(){
-		console
+	componentWillMount(){	
 		const accesstoken = localStorage.getItem("accesstoken");
 		fetch(`https://cnodejs.org/api/v1/messages?accesstoken=${accesstoken}`)
 			.then(res=>res.json())
 			.then(res=>{
-				console.log(res);
 				if (res.success) {
 					this.setState({
 						hasReadMessages:res.data.has_read_messages,
 						hasNotReadMessages:res.data.hasnot_read_messages
 					});
+					return res.data.hasnot_read_messages.length > 0;
 				}else{
 					alert(res.error_msg);
 				}
+			}).then((hasNotReadMessages)=>{
+				if (!hasNotReadMessages) {return;}
+				fetch("https://cnodejs.org/api/v1/message/mark_all",{
+					method:"POST",
+					headers:{
+						"Content-Type":"application/json"
+					},
+					body:JSON.stringify({accesstoken})
+				}).then(res=>res.json())
+					.then(res=>{
+						if (res.success) {
+
+						}else{
+							alert(res.error_msg);
+						}
+					});
 			});
 	}
 	render(){
-		console.log(this.state.hasReadMessages);
+		
 		return (
 			<div className="ct-box">
 				<div className="panel">
