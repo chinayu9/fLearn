@@ -132,12 +132,12 @@ input[type=text]{
 	color: #fff;
 }
 .message-tips{
-	color: #80bd01;
+	color: #fff;
 	font-size: 14px;
 	font-weight: bolder;
-	position: absolute;
-	top: 0;
-	left: 0;
+	padding: 1px 5px;
+	border-radius: 8px;
+	background: #80bd01;
 }
 /*************main******************/
 

@@ -6,8 +6,8 @@ class NavMenuItem extends Component{
 		if (menuItem.title === '未读消息' && messageCount) {
 			return (
 				<li className="nav-menu-item">
-					<Link to={menuItem.url}>{menuItem.title}</Link>
 					<span className="message-tips">{messageCount}</span>
+					<Link to={menuItem.url}>{menuItem.title}</Link>
 				</li>
 			);
 		}

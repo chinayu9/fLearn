@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import Header from '../components/Header';
 import CollectionsMain from '../components/CollectionsMain';
+import BackToTop from '../components/BackToTop';
 import { getUrlParam } from '../utils/fUtils';
 class Collections extends Component{
 	constructor(props){
@@ -15,6 +16,7 @@ class Collections extends Component{
 		let pagText = this.updatePagText(maxPage,curPage);
 		const loginname = props.match.params.id;
 		this.state = {
+			backToTop:false,
 			loginname,
 			topicList:[],
 			showTopicList:[],
@@ -23,7 +25,8 @@ class Collections extends Component{
 			curPage,
 			maxPage,
 			pagText
-		}
+		};
+		this.scrollHander = this.scrollHander.bind(this);
 	}
 	componentWillMount(){
 		fetch(`https://cnodejs.org/api/v1/topic_collect/${this.state.loginname}`)
@@ -44,7 +47,24 @@ class Collections extends Component{
 			});
 	}
 
+	scrollHander(){
+		const scrollTop = document.documentElement.scrollTop;
+		let backToTop = false;
+		backToTop = scrollTop > 700 ? true : false;
+		if (backToTop === this.state.backToTop) {return;}
+		this.setState({
+			backToTop:backToTop
+		});
+	}
+	componentDidMount(){
+		window.addEventListener("scroll",this.scrollHander);
+	}
+	componentWillUnmount(){
+		window.removeEventListener("scroll",this.scrollHander);
+	}
+
 	componentWillReceiveProps(nextProps){
+		window.scroll(0,0);
 		const { search } = nextProps.location;
 		let curPage = 1;
 		if (search) {
@@ -86,6 +106,7 @@ class Collections extends Component{
 	render(){
 		return (
 			<div>
+				{this.state.backToTop ? <BackToTop /> : ""}
 				<Header />
 				<CollectionsMain {...this.state} />
 			</div>
